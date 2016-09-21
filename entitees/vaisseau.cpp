@@ -1,5 +1,6 @@
 #include <iostream>
 #include "vaisseau.hpp"
+
 using namespace std;
 
 Vaisseau::Vaisseau(int x, int y){
