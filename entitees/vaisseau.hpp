@@ -5,7 +5,7 @@ class Vaisseau {
     public:
         Vaisseau(int x, int y);
         ~Vaisseau();
-        virtual void afficher();
+        virtual void afficher() = 0;
         void bouger(int x, int y);
 
     protected:

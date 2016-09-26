@@ -10,5 +10,5 @@ Joueur::~Joueur()
 {}
 
 void Joueur::afficher(){
-    cout << '(' << x_ << ", " << y_ << ") ; " << lives_ << endl;
+    cout << '(' << x_ << ", " << y_ << "), " << lives_ << " vies" << endl;
 }
