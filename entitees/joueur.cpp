@@ -9,6 +9,14 @@ Joueur::Joueur(int x, int y, int lives): Vaisseau(x, y), lives_(lives)
 Joueur::~Joueur()
 {}
 
+void Joueur::retirerVie(){
+    lives_--;
+}
+
+void Joueur::ajouterVie(){
+    lives_++;
+}
+
 void Joueur::afficher(){
     cout << '(' << x_ << ", " << y_ << "), " << lives_ << " vies" << endl;
 }

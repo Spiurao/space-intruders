@@ -6,9 +6,8 @@ class Ennemi : public Vaisseau {
     public:
         Ennemi(int x, int y, int hp);
         ~Ennemi();
-        void afficher();
         void recevoirDommage(int x);
         
-    private:
-        unsigned hp_;
+    protected:
+        int hp_;
 };
