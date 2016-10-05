@@ -1,10 +1,11 @@
 #pragma once
+
 #include "vaisseau.hpp"
 
 class Ennemi : public Vaisseau {
 	
     public:
-        Ennemi(int x, int y, int hp);
+        Ennemi(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int hp);
         ~Ennemi();
         void recevoirDommage(int x);
         

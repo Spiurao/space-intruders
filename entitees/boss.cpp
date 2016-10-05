@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Boss::Boss(int x, int y, int hp): Ennemi(x, y, hp)
+Boss::Boss(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int hp): Ennemi(x, y, rayon, img, rend, hp)
 {}
 
 Boss::~Boss()

@@ -3,20 +3,20 @@
 
 using namespace std;
 
-Joueur::Joueur(int x, int y, int lives): Vaisseau(x, y), lives_(lives)
+Joueur::Joueur(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int vies): Vaisseau(x, y, rayon, img, rend), vies_(vies)
 {}
 
 Joueur::~Joueur()
 {}
 
 void Joueur::retirerVie(){
-    lives_--;
+    vies_--;
 }
 
 void Joueur::ajouterVie(){
-    lives_++;
+    vies_++;
 }
 
 void Joueur::afficher(){
-    cout << '(' << x_ << ", " << y_ << "), " << lives_ << " vies" << endl;
+    cout << '(' << x_ << ", " << y_ << "), " << vies_ << " vies" << endl;
 }

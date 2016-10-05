@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Sbire::Sbire(int x, int y, int hp): Ennemi(x, y, hp)
+Sbire::Sbire(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int hp): Ennemi(x, y, rayon, img, rend, hp)
 {}
 
 Sbire::~Sbire()

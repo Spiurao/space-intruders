@@ -3,7 +3,8 @@
 
 using namespace std;
 
-Ennemi::Ennemi(int x, int y, int hp): Vaisseau(x, y), hp_(hp)
+Ennemi::Ennemi(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int hp):
+Vaisseau(x, y, rayon, img, rend), hp_(hp)
 {}
 
 Ennemi::~Ennemi()

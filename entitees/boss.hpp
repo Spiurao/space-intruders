@@ -4,7 +4,7 @@
 class Boss : public Ennemi {
 	
 	public:
-		Boss(int x, int y, int hp);
+		Boss(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int hp);
 		~Boss();
 		void afficher();
 };
