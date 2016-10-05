@@ -1,0 +1,223 @@
+\hypertarget{class_niveau}{}\section{Niveau Class Reference}
+\label{class_niveau}\index{Niveau@{Niveau}}
+
+
+Classe représentant un niveau de jeu.  
+
+
+
+
+{\ttfamily \#include $<$Niveau.\+hpp$>$}
+
+
+
+Inheritance diagram for Niveau\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_niveau__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Niveau\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_niveau__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_niveau_a0e9bc3e28ce24702949556c741a28bc5}{Niveau} (\hyperlink{class_space_intruders}{Space\+Intruders} $\ast$jeu)
+\begin{DoxyCompactList}\small\item\em Construit un niveau. \end{DoxyCompactList}\item 
+\hyperlink{class_niveau_ad5a39e5e034a061774564e145eb7cf61}{$\sim$\+Niveau} ()
+\begin{DoxyCompactList}\small\item\em Detruit un niveau. \end{DoxyCompactList}\item 
+void \hyperlink{class_niveau_a287b7fc08a2d7102008c134a72462d4f}{update} (float delta)
+\begin{DoxyCompactList}\small\item\em Méthode appelée a chaque boucle de jeu. \end{DoxyCompactList}\item 
+void \hyperlink{class_niveau_acde898f3c32db22484bd9ee8a94ac124}{render} (float delta, S\+D\+L\+\_\+\+Renderer $\ast$rendu)
+\begin{DoxyCompactList}\small\item\em Méthode appelée a chaque boucle de jeu. \end{DoxyCompactList}\item 
+void \hyperlink{class_niveau_a05eaf847a4d649a133d9259c0b9b2e2b}{keys\+Down} (std\+::map$<$ double, bool $>$ \&k)
+\begin{DoxyCompactList}\small\item\em Méthode transmettant les infos sur les clés clavier juste pressées. \end{DoxyCompactList}\item 
+void \hyperlink{class_niveau_a3730fe148bcfc20c96121769a48a0024}{keys\+Hold} (std\+::map$<$ double, bool $>$ \&k)
+\begin{DoxyCompactList}\small\item\em Méthode transmettant les infos sur les clés clavier actuellement pressées. \end{DoxyCompactList}\item 
+void \hyperlink{class_niveau_aceab76f09227e16b5dcdbb5ae0534ce9}{keys\+Up} (std\+::map$<$ double, bool $>$ \&k)
+\begin{DoxyCompactList}\small\item\em Méthode transmettant les infos sur les clés clavier juste relachées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe représentant un niveau de jeu. 
+
+Definition at line 20 of file Niveau.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Niveau@{Niveau}!Niveau@{Niveau}}
+\index{Niveau@{Niveau}!Niveau@{Niveau}}
+\subsubsection[{\texorpdfstring{Niveau(\+Space\+Intruders $\ast$jeu)}{Niveau(SpaceIntruders *jeu)}}]{\setlength{\rightskip}{0pt plus 5cm}Niveau\+::\+Niveau (
+\begin{DoxyParamCaption}
+\item[{{\bf Space\+Intruders} $\ast$}]{jeu}
+\end{DoxyParamCaption}
+)}\hypertarget{class_niveau_a0e9bc3e28ce24702949556c741a28bc5}{}\label{class_niveau_a0e9bc3e28ce24702949556c741a28bc5}
+
+
+Construit un niveau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em jeu} & \+: Pointeur vers la classe princpiale du jeu \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 4 of file Niveau.\+cpp.
+
+\index{Niveau@{Niveau}!````~Niveau@{$\sim$\+Niveau}}
+\index{````~Niveau@{$\sim$\+Niveau}!Niveau@{Niveau}}
+\subsubsection[{\texorpdfstring{$\sim$\+Niveau()}{~Niveau()}}]{\setlength{\rightskip}{0pt plus 5cm}Niveau\+::$\sim$\+Niveau (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_niveau_ad5a39e5e034a061774564e145eb7cf61}{}\label{class_niveau_ad5a39e5e034a061774564e145eb7cf61}
+
+
+Detruit un niveau. 
+
+
+
+Definition at line 7 of file Niveau.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Niveau@{Niveau}!keys\+Down@{keys\+Down}}
+\index{keys\+Down@{keys\+Down}!Niveau@{Niveau}}
+\subsubsection[{\texorpdfstring{keys\+Down(std\+::map$<$ double, bool $>$ \&k)}{keysDown(std::map< double, bool > &k)}}]{\setlength{\rightskip}{0pt plus 5cm}void Niveau\+::keys\+Down (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ double, bool $>$ \&}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_niveau_a05eaf847a4d649a133d9259c0b9b2e2b}{}\label{class_niveau_a05eaf847a4d649a133d9259c0b9b2e2b}
+
+
+Méthode transmettant les infos sur les clés clavier juste pressées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \+: Clés juste pressées \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_input_listener_a415245dec47d3e80be64b779859a90c9}{Input\+Listener}.
+
+
+
+Definition at line 16 of file Niveau.\+cpp.
+
+\index{Niveau@{Niveau}!keys\+Hold@{keys\+Hold}}
+\index{keys\+Hold@{keys\+Hold}!Niveau@{Niveau}}
+\subsubsection[{\texorpdfstring{keys\+Hold(std\+::map$<$ double, bool $>$ \&k)}{keysHold(std::map< double, bool > &k)}}]{\setlength{\rightskip}{0pt plus 5cm}void Niveau\+::keys\+Hold (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ double, bool $>$ \&}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_niveau_a3730fe148bcfc20c96121769a48a0024}{}\label{class_niveau_a3730fe148bcfc20c96121769a48a0024}
+
+
+Méthode transmettant les infos sur les clés clavier actuellement pressées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \+: Clés actuellement pressées \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_input_listener_a0a9bea1bfdcb82a827a48ad35d692600}{Input\+Listener}.
+
+
+
+Definition at line 19 of file Niveau.\+cpp.
+
+\index{Niveau@{Niveau}!keys\+Up@{keys\+Up}}
+\index{keys\+Up@{keys\+Up}!Niveau@{Niveau}}
+\subsubsection[{\texorpdfstring{keys\+Up(std\+::map$<$ double, bool $>$ \&k)}{keysUp(std::map< double, bool > &k)}}]{\setlength{\rightskip}{0pt plus 5cm}void Niveau\+::keys\+Up (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ double, bool $>$ \&}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_niveau_aceab76f09227e16b5dcdbb5ae0534ce9}{}\label{class_niveau_aceab76f09227e16b5dcdbb5ae0534ce9}
+
+
+Méthode transmettant les infos sur les clés clavier juste relachées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \+: Clés juste relachée \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_input_listener_a188edcf4460b5db1081ddd7b9f271175}{Input\+Listener}.
+
+
+
+Definition at line 22 of file Niveau.\+cpp.
+
+\index{Niveau@{Niveau}!render@{render}}
+\index{render@{render}!Niveau@{Niveau}}
+\subsubsection[{\texorpdfstring{render(float delta, S\+D\+L\+\_\+\+Renderer $\ast$rendu)}{render(float delta, SDL_Renderer *rendu)}}]{\setlength{\rightskip}{0pt plus 5cm}void Niveau\+::render (
+\begin{DoxyParamCaption}
+\item[{float}]{delta, }
+\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{rendu}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_niveau_acde898f3c32db22484bd9ee8a94ac124}{}\label{class_niveau_acde898f3c32db22484bd9ee8a94ac124}
+
+
+Méthode appelée a chaque boucle de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & \+: Temps écoulé depuis le dernier appel \\
+\hline
+{\em rendu} & \+: Pointeur vers le rendu courant \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_screen_a7d3402d0cab593a375c84254b864ee22}{Screen}.
+
+
+
+Definition at line 13 of file Niveau.\+cpp.
+
+\index{Niveau@{Niveau}!update@{update}}
+\index{update@{update}!Niveau@{Niveau}}
+\subsubsection[{\texorpdfstring{update(float delta)}{update(float delta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Niveau\+::update (
+\begin{DoxyParamCaption}
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_niveau_a287b7fc08a2d7102008c134a72462d4f}{}\label{class_niveau_a287b7fc08a2d7102008c134a72462d4f}
+
+
+Méthode appelée a chaque boucle de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & \+: Temps écoulé depuis le dernier appel \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_screen_a6933698ce05938524e1764fa42fe8129}{Screen}.
+
+
+
+Definition at line 10 of file Niveau.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_niveau_8hpp}{Niveau.\+hpp}\item 
+\hyperlink{_niveau_8cpp}{Niveau.\+cpp}\end{DoxyCompactItemize}

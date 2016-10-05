@@ -1,0 +1,85 @@
+\hypertarget{class_screen}{}\section{Screen Interface Reference}
+\label{class_screen}\index{Screen@{Screen}}
+
+
+Classe representant un écran de jeu.  
+
+
+
+
+{\ttfamily \#include $<$Screen.\+hpp$>$}
+
+
+
+Inheritance diagram for Screen\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{class_screen__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_screen_a6933698ce05938524e1764fa42fe8129}{update} (float delta)=0
+\begin{DoxyCompactList}\small\item\em Méthode appelée a chaque boucle de jeu. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_screen_a7d3402d0cab593a375c84254b864ee22}{render} (float delta, S\+D\+L\+\_\+\+Renderer $\ast$rendu)=0
+\begin{DoxyCompactList}\small\item\em Méthode appelée a chaque boucle de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe representant un écran de jeu. 
+
+Definition at line 18 of file Screen.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Screen@{Screen}!render@{render}}
+\index{render@{render}!Screen@{Screen}}
+\subsubsection[{\texorpdfstring{render(float delta, S\+D\+L\+\_\+\+Renderer $\ast$rendu)=0}{render(float delta, SDL_Renderer *rendu)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Screen\+::render (
+\begin{DoxyParamCaption}
+\item[{float}]{delta, }
+\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{rendu}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_screen_a7d3402d0cab593a375c84254b864ee22}{}\label{class_screen_a7d3402d0cab593a375c84254b864ee22}
+
+
+Méthode appelée a chaque boucle de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & \+: Temps écoulé depuis le dernier appel \\
+\hline
+{\em rendu} & \+: Pointeur vers le rendu courant \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_niveau_acde898f3c32db22484bd9ee8a94ac124}{Niveau}.
+
+\index{Screen@{Screen}!update@{update}}
+\index{update@{update}!Screen@{Screen}}
+\subsubsection[{\texorpdfstring{update(float delta)=0}{update(float delta)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Screen\+::update (
+\begin{DoxyParamCaption}
+\item[{float}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_screen_a6933698ce05938524e1764fa42fe8129}{}\label{class_screen_a6933698ce05938524e1764fa42fe8129}
+
+
+Méthode appelée a chaque boucle de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & \+: Temps écoulé depuis le dernier appel \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_niveau_a287b7fc08a2d7102008c134a72462d4f}{Niveau}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_screen_8hpp}{Screen.\+hpp}\end{DoxyCompactItemize}

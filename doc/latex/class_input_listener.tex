@@ -1,0 +1,104 @@
+\hypertarget{class_input_listener}{}\section{Input\+Listener Interface Reference}
+\label{class_input_listener}\index{Input\+Listener@{Input\+Listener}}
+
+
+Classe gérant les entrées.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Listener.\+hpp$>$}
+
+
+
+Inheritance diagram for Input\+Listener\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{class_input_listener__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_input_listener_a415245dec47d3e80be64b779859a90c9}{keys\+Down} (std\+::map$<$ double, bool $>$ \&k)=0
+\begin{DoxyCompactList}\small\item\em Méthodes transmettant les infos sur les clés clavier juste pressées. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_input_listener_a0a9bea1bfdcb82a827a48ad35d692600}{keys\+Hold} (std\+::map$<$ double, bool $>$ \&k)=0
+\begin{DoxyCompactList}\small\item\em Méthode transmettant les infos sur les clés clavier actuellement pressées. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_input_listener_a188edcf4460b5db1081ddd7b9f271175}{keys\+Up} (std\+::map$<$ double, bool $>$ \&k)=0
+\begin{DoxyCompactList}\small\item\em Méthodes transmettant les infos sur les clés clavier juste relachées. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe gérant les entrées. 
+
+Definition at line 17 of file Input\+Listener.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Input\+Listener@{Input\+Listener}!keys\+Down@{keys\+Down}}
+\index{keys\+Down@{keys\+Down}!Input\+Listener@{Input\+Listener}}
+\subsubsection[{\texorpdfstring{keys\+Down(std\+::map$<$ double, bool $>$ \&k)=0}{keysDown(std::map< double, bool > &k)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+Listener\+::keys\+Down (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ double, bool $>$ \&}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_input_listener_a415245dec47d3e80be64b779859a90c9}{}\label{class_input_listener_a415245dec47d3e80be64b779859a90c9}
+
+
+Méthodes transmettant les infos sur les clés clavier juste pressées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \+: Clés juste pressées \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_niveau_a05eaf847a4d649a133d9259c0b9b2e2b}{Niveau}.
+
+\index{Input\+Listener@{Input\+Listener}!keys\+Hold@{keys\+Hold}}
+\index{keys\+Hold@{keys\+Hold}!Input\+Listener@{Input\+Listener}}
+\subsubsection[{\texorpdfstring{keys\+Hold(std\+::map$<$ double, bool $>$ \&k)=0}{keysHold(std::map< double, bool > &k)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+Listener\+::keys\+Hold (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ double, bool $>$ \&}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_input_listener_a0a9bea1bfdcb82a827a48ad35d692600}{}\label{class_input_listener_a0a9bea1bfdcb82a827a48ad35d692600}
+
+
+Méthode transmettant les infos sur les clés clavier actuellement pressées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \+: Clés actuellement pressées \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_niveau_a3730fe148bcfc20c96121769a48a0024}{Niveau}.
+
+\index{Input\+Listener@{Input\+Listener}!keys\+Up@{keys\+Up}}
+\index{keys\+Up@{keys\+Up}!Input\+Listener@{Input\+Listener}}
+\subsubsection[{\texorpdfstring{keys\+Up(std\+::map$<$ double, bool $>$ \&k)=0}{keysUp(std::map< double, bool > &k)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Input\+Listener\+::keys\+Up (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ double, bool $>$ \&}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_input_listener_a188edcf4460b5db1081ddd7b9f271175}{}\label{class_input_listener_a188edcf4460b5db1081ddd7b9f271175}
+
+
+Méthodes transmettant les infos sur les clés clavier juste relachées. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & \+: Clés juste relachée \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_niveau_aceab76f09227e16b5dcdbb5ae0534ce9}{Niveau}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_input_listener_8hpp}{Input\+Listener.\+hpp}\end{DoxyCompactItemize}
