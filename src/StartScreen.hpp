@@ -1,8 +1,8 @@
 #pragma once
 
 /*!
- * \file
- * \brief
+ * \file StartScreen.hpp
+ * \brief Ecran d'accueil
  * \author Antoine Magnin, Pierre Caillaud
  * \version 0.1
  */
@@ -11,6 +11,7 @@
 #include <memory>
 #include "Screen.hpp"
 #include "SpaceIntruders.hpp"
+#include "Bouton.hpp"
 
 /*!
   * \class
@@ -56,4 +57,11 @@ class StartScreen : public Screen{
 
 	private:
 		SpaceIntruders *jeu_;
+
+		SDL_Surface *imgBg_;
+		SDL_Texture *texBg_;
+		SDL_Rect rectBg_;
+
+		Bouton *boutonStart, *boutonExit;
+
 };

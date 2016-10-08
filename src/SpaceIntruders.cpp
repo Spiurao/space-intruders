@@ -17,7 +17,7 @@ int SpaceIntruders::start(){
 	boucle_ = true;
 
 	// Démarrage de la SDL
-    if(SDL_Init(SDL_INIT_VIDEO)!=0){
+    if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)!=0){
     	std::cout << "Impossible d'initialiser la SDL: " << SDL_GetError() << std::endl;
     	return -1;
     }
@@ -25,7 +25,7 @@ int SpaceIntruders::start(){
     //Dimensions de la fenetre
     SDL_GetCurrentDisplayMode(0, &dm_);
 	windowDim_.x = 0; windowDim_.y = 0;
-	windowDim_.w = dm_.h*2/3; windowDim_.h = dm_.h*9/10;
+	windowDim_.h = dm_.h*9/10; windowDim_.w = windowDim_.h*2/3;
 
     //Creation de la fenetre
     window_ = SDL_CreateWindow("Space Intruders", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowDim_.w, windowDim_.h, SDL_WINDOW_SHOWN);
@@ -34,12 +34,12 @@ int SpaceIntruders::start(){
     render_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED);
     SDL_SetRenderDrawColor(render_, 50, 50, 50, 255);
 
-    //Creation du Niveau
-	std::shared_ptr<Niveau> niveau(new Niveau(this));
-    setScreen(niveau);
+    //Creation du StartScreen
+	std::shared_ptr<StartScreen> startScreen(new StartScreen(this));
+    setScreen(startScreen);
 
     //Input listener
-    setInputListener(niveau);
+    setInputListener(startScreen);
 
 	//Inputs
     std::map <double, bool> keysDown;

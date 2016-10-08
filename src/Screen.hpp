@@ -17,7 +17,6 @@
   */
 class Screen : public InputListener{
 	public:
-		//virtual ~Screen(){}
 		/*!
 		 * \brief Méthode appelée a chaque boucle de jeu
 		 * \param delta : Temps écoulé depuis le dernier appel
