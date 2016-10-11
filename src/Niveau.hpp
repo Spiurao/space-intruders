@@ -42,17 +42,17 @@ class Niveau : public Screen{
 		 * \brief Méthode transmettant les infos sur les clés clavier juste pressées
 		 * \param k : Clés juste pressées
 		 */
-		void keysDown(std::map<double,bool> &k);
+		virtual void keysDown(std::map<double,bool> &k);
 		/*!
 		 * \brief Méthode transmettant les infos sur les clés clavier actuellement pressées
 		 * \param k : Clés actuellement pressées
 		 */
-		void keysHold(std::map<double,bool> &k);
+		virtual void keysHold(std::map<double,bool> &k);
 		/*!
 		 * \brief Méthode transmettant les infos sur les clés clavier juste relachées
 		 * \param k : Clés juste relachée
 		 */
-		void keysUp(std::map<double,bool> &k);
+		virtual void keysUp(std::map<double,bool> &k);
 
 	private:
 		SpaceIntruders *jeu_;

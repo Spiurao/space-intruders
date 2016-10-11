@@ -40,7 +40,7 @@ class Screen : public InputListener{
 		virtual void keysHold(std::map<double,bool> &k) = 0;
 		/*!
 		 * \brief Méthodes transmettant les infos sur les clés clavier juste relachées
-		 * \param k : Clés juste relachée
+		 * \param k : Clés juste relachées
 		 */
 		virtual void keysUp(std::map<double,bool> &k) = 0;
 };
