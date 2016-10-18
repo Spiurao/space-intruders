@@ -1,6 +1,8 @@
 #pragma once
 
-#include "vaisseau.hpp"
+#include <iostream>
+#include <map>
+#include "Vaisseau.hpp"
 
 class Joueur : public Vaisseau {
     
@@ -16,4 +18,6 @@ class Joueur : public Vaisseau {
     private:
         int vies_;
         double vitesse_;
+
+        void updateRect();
 };

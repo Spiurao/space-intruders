@@ -1,5 +1,6 @@
 #include "StartScreen.hpp"
 #include "Niveau.hpp"
+#include "Niveau1.hpp"
 #include <iostream>
 
 StartScreen::StartScreen(SpaceIntruders *jeu){
@@ -46,7 +47,7 @@ void StartScreen::keysHold(std::map<double,bool> &k){
 void StartScreen::keysUp(std::map<double,bool> &k){
 	if(k[SDLK_RETURN]){
 		if(boutonStart->isSelected()){
-			std::shared_ptr<Niveau> niv(new Niveau(jeu_));
+			std::shared_ptr<Niveau1> niv(new Niveau1(jeu_));
 			jeu_->setScreen(niv);
 			jeu_->setInputListener(niv);
 		}

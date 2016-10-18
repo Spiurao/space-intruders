@@ -1,5 +1,5 @@
 #include <iostream>
-#include "sbire.hpp"
+#include "Sbire.hpp"
 
 using namespace std;
 

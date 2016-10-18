@@ -1,5 +1,5 @@
 #include <iostream>
-#include "vaisseau.hpp"
+#include "Vaisseau.hpp"
 
 using namespace std;
 
@@ -14,4 +14,12 @@ Vaisseau::~Vaisseau(){}
 void Vaisseau::bouger(double x, double y){
 	x_+=x;
 	y_+=y;
+}
+
+SDL_Texture *Vaisseau::getTexture(){
+	return tex_;
+}
+
+SDL_Rect Vaisseau::getRect(){
+	return rect_;
 }

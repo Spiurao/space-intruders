@@ -1,10 +1,13 @@
-#include <iostream>
-#include "joueur.hpp"
+#include "Joueur.hpp"
 
 using namespace std;
 
 Joueur::Joueur(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int vies): Vaisseau(x, y, rayon, img, rend), vies_(vies), vitesse_(0.2)
-{}
+{
+	rect_.h = rect_.w = 64;
+	rect_.x = x_;
+	rect_.y = y_;
+}
 
 Joueur::~Joueur()
 {}
@@ -23,15 +26,23 @@ void Joueur::setVitesse(double v){
 
 void Joueur::deplacer(std::map<double, bool> &k){
 	if(k[SDLK_UP])
-		joueur_.bouger(0.0, vitesse_);
+		bouger(0.0, -vitesse_);
 	if(k[SDLK_DOWN])
-		joueur_.bouger(0.0, -vitesse_);
+		bouger(0.0, vitesse_);
 	if (k[SDLK_RIGHT])
-		joueur_.bouger(vitesse_,0.0);
+		bouger(vitesse_,0.0);
 	if (k[SDLK_LEFT])
-		joueur_.bouger(-vitesse_,0.0);
+		bouger(-vitesse_,0.0);
+
+	updateRect();
 }
 
+
 void Joueur::afficher(){
-    cout << '(' << x_ << ", " << y_ << "), " << vies_ << " vies" << endl;
+    std::cout << '(' << x_ << ", " << y_ << "), " << vies_ << " vies" << std::endl;
+}
+
+void Joueur::updateRect(){
+	rect_.x = (int)x_;
+	rect_.y = (int)y_;
 }

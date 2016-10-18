@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ennemi.hpp"
+#include "Ennemi.hpp"
 
 class Sbire : public Ennemi {
 	

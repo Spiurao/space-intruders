@@ -31,13 +31,13 @@ class Niveau : public Screen{
 		 * \brief Méthode appelée a chaque boucle de jeu
 		 * \param delta : Temps écoulé depuis le dernier appel
 		 */
-		void update (float delta);
+		virtual void update (float delta);
 		/*!
 		 * \brief Méthode appelée a chaque boucle de jeu
 		 * \param delta : Temps écoulé depuis le dernier appel
 		 * \param rendu : Pointeur vers le rendu courant
 		 */
-		void render (float delta, SDL_Renderer *rendu);
+		virtual void render (float delta, SDL_Renderer *rendu);
 		/*!
 		 * \brief Méthode transmettant les infos sur les clés clavier juste pressées
 		 * \param k : Clés juste pressées
@@ -54,6 +54,6 @@ class Niveau : public Screen{
 		 */
 		virtual void keysUp(std::map<double,bool> &k);
 
-	private:
+	protected:
 		SpaceIntruders *jeu_;
 };

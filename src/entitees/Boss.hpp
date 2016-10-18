@@ -1,5 +1,5 @@
 #pragma once
-#include "ennemi.hpp"
+#include "Ennemi.hpp"
 
 class Boss : public Ennemi {
 	

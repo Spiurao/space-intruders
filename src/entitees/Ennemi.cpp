@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ennemi.hpp"
+#include "Ennemi.hpp"
 
 using namespace std;
 
