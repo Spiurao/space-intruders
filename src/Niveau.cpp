@@ -4,7 +4,7 @@
 
 Niveau::Niveau(SpaceIntruders *jeu){
 	jeu_ = jeu;
-	SDL_SetRenderDrawColor(jeu->getRenderer(), 255, 255, 0, 255);
+	SDL_SetRenderDrawColor(jeu->getRenderer(), 0, 0, 0, 0);
 }
 Niveau::~Niveau(){
 	
