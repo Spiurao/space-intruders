@@ -1,6 +1,7 @@
+#include <iostream>
+
 #include "Niveau.hpp"
 #include "StartScreen.hpp"
-#include <iostream>
 
 Niveau::Niveau(SpaceIntruders *jeu){
 	jeu_ = jeu;

@@ -1,7 +1,8 @@
+#include <iostream>
+
 #include "StartScreen.hpp"
 #include "Niveau.hpp"
 #include "Niveau1.hpp"
-#include <iostream>
 
 StartScreen::StartScreen(SpaceIntruders *jeu){
 	jeu_ = jeu;
