@@ -9,9 +9,10 @@ x_(x), y_(y), rayon_(rayon), img_(img), tex_(SDL_CreateTextureFromSurface(rend, 
 	vp_ = std::vector<Projectile*>();
 }
 
-Vaisseau::~Vaisseau(){}
-
-//void Vaisseau::afficher(){}
+Vaisseau::~Vaisseau(){
+	for(auto p: vp_)
+		delete p;
+}
 
 void Vaisseau::bouger(double x, double y){
 	x_+=x;
@@ -28,14 +29,6 @@ SDL_Rect Vaisseau::getRect(){
 
 double Vaisseau::getRayon(){
 	return rayon_;
-}
-
-double Vaisseau::getX(){
-	return x_;
-}
-
-double Vaisseau::getY(){
-	return y_;
 }
 
 std::vector<Projectile*>& Vaisseau::getProjectiles(){

@@ -8,10 +8,7 @@ Joueur::Joueur(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer 
 
 }
 
-Joueur::~Joueur(){
-	for(auto p: vp_)
-		delete p;
-}
+Joueur::~Joueur(){}
 
 void Joueur::retirerVie(){
     vies_--;

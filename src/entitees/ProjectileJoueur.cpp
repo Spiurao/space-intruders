@@ -10,20 +10,3 @@ Projectile(x, y, rayon, angle, vitesse, img, rend){
 
 ProjectileJoueur::~ProjectileJoueur()
 {}
-
-SDL_Texture *ProjectileJoueur::getTexture(){
-	return tex_;
-}
-
-SDL_Rect ProjectileJoueur::getRect(){
-	return rect_;
-}
-
-double ProjectileJoueur::getRayon(){
-	return rayon_;
-}
-
-void ProjectileJoueur::updateRect(){
-	rect_.x = (int)x_;
-	rect_.y = (int)y_;
-}
