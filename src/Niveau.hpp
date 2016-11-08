@@ -21,7 +21,7 @@ class Niveau : public Screen{
 	public:
 		/*!
 		 * \brief Construit un niveau
-		 * \param jeu : Pointeur vers la classe princpiale du jeu
+		 * \param jeu : Pointeur vers la classe principale du jeu
 		 */
 		Niveau(SpaceIntruders *jeu);
 		/*!
