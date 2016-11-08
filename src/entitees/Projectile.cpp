@@ -1,12 +1,8 @@
 #include "Projectile.hpp"
 
-Projectile::Projectile(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend) :
-x_(x), y_(y), rayon_(rayon), img_(img), tex_(SDL_CreateTextureFromSurface(rend, img_)){
-
-	rect_.h = rect_.w = 20;
-	rect_.x = x_;
-	rect_.y = y_;
-}
+Projectile::Projectile(double x, double y, double rayon, double angle, double vitesse, SDL_Surface *img, SDL_Renderer *rend) :
+x_(x), y_(y), rayon_(rayon), angle_(angle), vitesse_(vitesse), img_(img), tex_(SDL_CreateTextureFromSurface(rend, img_))
+{}
 
 Projectile::~Projectile()
 {}
@@ -24,7 +20,8 @@ double Projectile::getRayon(){
 }
 
 void Projectile::avancer(){
-	y_-=1.5;
+	x_+=sin(angle_*M_PI/180.0)*vitesse_;
+	y_+=cos(angle_*M_PI/180.0)*vitesse_;
 
 	updateRect();
 }

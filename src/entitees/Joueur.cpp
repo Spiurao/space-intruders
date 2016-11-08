@@ -5,7 +5,7 @@ Joueur::Joueur(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer 
 	rect_.h = rect_.w = 64;
 	rect_.x = x_;
 	rect_.y = y_;
-	vp_ = std::vector<Projectile*>();
+
 }
 
 Joueur::~Joueur(){
@@ -45,9 +45,8 @@ void Joueur::gererVitesse(std::map<double, bool> &k){
 		setVitesse(0.5);
 }
 
-void Joueur::tirer(SDL_Renderer *rend){
-	vp_.push_back(new Projectile(x_, y_, 15, SDL_LoadBMP("assets/bullet.bmp"), rend));
-	vp_.push_back(new Projectile(x_+44, y_, 15, SDL_LoadBMP("assets/bullet.bmp"), rend));
+void Joueur::tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend){
+	vp_.push_back(new ProjectileJoueur(x, y, 15, angle, vitesse, SDL_LoadBMP("assets/bullet.bmp"), rend));
 }
 
 void Joueur::gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int FenetreH, int FenetreW){
@@ -56,15 +55,12 @@ void Joueur::gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int Fene
 	deplacer(k, FenetreH, FenetreW);
 	if(delay_ <= 0){
 		if(k[SDLK_z]){
-			tirer(rend);
+			tirer(x_, y_, 180, 1.5, rend);
+			tirer(x_+44, y_, 180, 1.5, rend);
 			delay_ = 60;
 		}
 	}
 	delay_--;
-}
-
-std::vector<Projectile*>& Joueur::getProjectiles(){
-	return vp_;
 }
 
 void Joueur::gererProjectiles(){

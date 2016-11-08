@@ -19,7 +19,6 @@ Niveau1::~Niveau1()
 }
 
 void Niveau1::update(float delta){
-
 	std::vector<Projectile*>& projectilesJoueur = joueur_.getProjectiles();
 
 	for(int i=projectilesJoueur.size()-1; i>=0; --i){
@@ -45,6 +44,11 @@ void Niveau1::update(float delta){
 			}
 		}
 	}
+	for(auto e: ennemis_){
+			e->tirer(e->getRect().x, e->getRect().y, 0, 0.1, jeu_->getRenderer());
+		for(auto pe: e->getProjectiles())
+			pe->avancer();
+	}
 }
 
 void Niveau1::render(float delta, SDL_Renderer *rendu){
@@ -54,6 +58,11 @@ void Niveau1::render(float delta, SDL_Renderer *rendu){
 	for(auto e: ennemis_){
 		SDL_Rect rectEnnemi = e->getRect();
 		SDL_RenderCopy(jeu_->getRenderer(), e->getTexture(), NULL, &rectEnnemi);
+
+		for(auto pe : e->getProjectiles()){
+			SDL_Rect rectProjectileEnnemi = pe->getRect();
+			SDL_RenderCopy(jeu_->getRenderer(), pe->getTexture(), NULL, &rectProjectileEnnemi);
+		}
 	}
 
 	for(auto p: joueur_.getProjectiles()){

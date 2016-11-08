@@ -1,10 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
 #include <map>
 #include "Vaisseau.hpp"
-#include "Projectile.hpp"
+#include "ProjectileJoueur.hpp"
 
 class Joueur : public Vaisseau {
     
@@ -16,16 +15,14 @@ class Joueur : public Vaisseau {
         void ajouterVie();
         void deplacer(std::map<double, bool> &k, int FenetreH, int FenetreW);
         void gererVitesse(std::map<double, bool> &k);
-        void tirer(SDL_Renderer *rend);
+        void tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend);
         void gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int FenetreH, int FenetreW);
-        std::vector<Projectile*>& getProjectiles();
         void gererProjectiles();
         void afficher();
     
     private:
         int vies_;
         double vitesse_;
-        std::vector<Projectile*> vp_;
         int delay_;
 
         void updateRect();
