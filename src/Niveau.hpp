@@ -9,6 +9,7 @@
 
 #include <SDL2/SDL.h>
 #include <memory>
+#include "math.h"
 #include "Screen.hpp"
 #include "SpaceIntruders.hpp"
 

@@ -5,7 +5,9 @@ using namespace std;
 
 Vaisseau::Vaisseau(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend) :
 x_(x), y_(y), rayon_(rayon), img_(img), tex_(SDL_CreateTextureFromSurface(rend, img_))
-{}
+{
+	
+}
 
 Vaisseau::~Vaisseau(){}
 
@@ -22,4 +24,8 @@ SDL_Texture *Vaisseau::getTexture(){
 
 SDL_Rect Vaisseau::getRect(){
 	return rect_;
+}
+
+double Vaisseau::getRayon(){
+	return rayon_;
 }

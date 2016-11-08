@@ -63,7 +63,7 @@ void Joueur::gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int Fene
 	delay_--;
 }
 
-std::vector<Projectile*> Joueur::getProjectiles(){
+std::vector<Projectile*>& Joueur::getProjectiles(){
 	return vp_;
 }
 

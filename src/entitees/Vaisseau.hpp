@@ -12,6 +12,7 @@ class Vaisseau {
 		void bouger(double x, double y);
 		SDL_Texture *getTexture();
 		SDL_Rect getRect();
+		double getRayon();
 
 	protected:
 		double x_, y_, rayon_;

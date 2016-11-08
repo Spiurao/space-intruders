@@ -18,7 +18,7 @@ class Joueur : public Vaisseau {
         void gererVitesse(std::map<double, bool> &k);
         void tirer(SDL_Renderer *rend);
         void gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int FenetreH, int FenetreW);
-        std::vector<Projectile*> getProjectiles();
+        std::vector<Projectile*>& getProjectiles();
         void gererProjectiles();
         void afficher();
     

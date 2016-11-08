@@ -8,6 +8,7 @@ public:
 	~Projectile();
 	SDL_Texture *getTexture();
 	SDL_Rect getRect();
+	double getRayon();
 	void avancer();
 private:
 	double x_, y_, rayon_;

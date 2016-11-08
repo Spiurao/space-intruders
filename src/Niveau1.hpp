@@ -3,6 +3,8 @@
 #include <vector>
 #include "SDL2/SDL.h"
 #include "Niveau.hpp"
+#include "entitees/Ennemi.hpp"
+#include "entitees/Sbire.hpp"
 #include "entitees/Joueur.hpp"
 #include "StartScreen.hpp"
 
@@ -17,6 +19,6 @@ public:
 	void keysUp(std::map<double,bool> &k);
 
 private:
-	//std::vector<Ennemi> ennemis_;
+	std::vector<Ennemi*> ennemis_;
 	Joueur joueur_;
 };

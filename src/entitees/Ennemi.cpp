@@ -13,3 +13,7 @@ Ennemi::~Ennemi()
 void Ennemi::recevoirDommage(int x){
     hp_-=x;
 }
+
+bool Ennemi::estMort(){
+	return hp_ <= 0;
+}

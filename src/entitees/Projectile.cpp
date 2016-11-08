@@ -19,6 +19,10 @@ SDL_Rect Projectile::getRect(){
 	return rect_;
 }
 
+double Projectile::getRayon(){
+	return rayon_;
+}
+
 void Projectile::avancer(){
 	y_-=1.5;
 
