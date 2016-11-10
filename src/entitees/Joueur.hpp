@@ -18,7 +18,7 @@
  */
 
 class Joueur : public Vaisseau {
-    
+
     public:
         /*!
          * \brief Construit le joueur
@@ -84,11 +84,11 @@ class Joueur : public Vaisseau {
          * \brief Méthode de débuggage, à ne pas appeler
          */
         void afficher();
-    
+
     private:
         int vies_;
         double vitesse_;
         int delay_;
 
-        void updateRect();
+        //void updateRect();
 };

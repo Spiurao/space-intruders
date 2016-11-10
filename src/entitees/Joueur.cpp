@@ -69,8 +69,8 @@ void Joueur::afficher(){
     std::cout << '(' << x_ << ", " << y_ << "), " << vies_ << " vies" << std::endl;
 }
 
-
+/*
 void Joueur::updateRect(){
 	rect_.x = (int)x_;
 	rect_.y = (int)y_;
-}
+}*/

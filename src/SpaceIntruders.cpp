@@ -87,7 +87,7 @@ int SpaceIntruders::start(){
     	SDL_RenderClear(render_);
 		//Calcul du delta
     	long stop =  (std::chrono::system_clock::now().time_since_epoch() / std::chrono::milliseconds(1));
-		delta_ = (float) (stop - start)/6000;
+		delta_ = (float) (stop - start)/1000;
 	}
 	if(!window_){
 		std::cout << "Erreur de création de la fenêtre: " << SDL_GetError() << std::endl;

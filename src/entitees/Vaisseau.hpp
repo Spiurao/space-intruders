@@ -71,6 +71,11 @@ class Vaisseau {
 		 * \return un vecteur de pointeurs vers Projectile
 		 */
 		std::vector<Projectile*>& getProjectiles();
+		/*!
+		 * \brief Teste si le vaisseau est sorti de l'écran
+		 * \return Vrai si le vaisseau est sorti de l'écran
+		 */
+		bool estSorti(int w, int h);
 
 	protected:
 		double x_, y_, rayon_;
@@ -78,5 +83,5 @@ class Vaisseau {
 		SDL_Rect rect_;
 		SDL_Surface *img_;
 		SDL_Texture *tex_;
+		void updateRect();
 };
-

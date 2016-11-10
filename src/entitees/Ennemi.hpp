@@ -15,7 +15,7 @@
  * \brief Classe représentant un ennemi
  */
 class Ennemi : public Vaisseau {
-	
+
     public:
         /*!
          * \brief Construit un ennemi
@@ -50,7 +50,7 @@ class Ennemi : public Vaisseau {
          * \return true si l'ennemi est mort, false sinon
          */
         bool estMort();
-        
+
     protected:
         int hp_;
 };

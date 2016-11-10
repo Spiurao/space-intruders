@@ -14,6 +14,7 @@
 #include "entitees/Sbire.hpp"
 #include "entitees/Joueur.hpp"
 #include "StartScreen.hpp"
+#include "Vague.hpp"
 
 
 /*!
@@ -59,6 +60,9 @@ public:
 	void keysUp(std::map<double,bool> &k);
 
 private:
-	std::vector<Ennemi*> ennemis_;
+	//std::vector<Ennemi*> ennemis_;
+	Vague vague_;
+	float intervalVagues_;
+	float tempsVague_;
 	Joueur joueur_;
 };

@@ -17,6 +17,7 @@ Vaisseau::~Vaisseau(){
 void Vaisseau::bouger(double x, double y){
 	x_+=x;
 	y_+=y;
+	updateRect();
 }
 
 SDL_Texture *Vaisseau::getTexture(){
@@ -33,4 +34,13 @@ double Vaisseau::getRayon(){
 
 std::vector<Projectile*>& Vaisseau::getProjectiles(){
 	return vp_;
+}
+
+bool Vaisseau::estSorti(int w, int h){
+    return x_+rayon_ < 0 || x_>w || y_>h;
+}
+
+void Vaisseau::updateRect(){
+	rect_.x = (int)x_;
+	rect_.y = (int)y_;
 }
