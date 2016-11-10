@@ -44,12 +44,14 @@ class Ennemi : public Vaisseau {
          * \param vitesse : la vitesse du projectile
          * \param rend : le renderer sur lequel on va représenter le projectile
          */
-        void tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend);
+        Projectile* tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend);
         /*!
          * \brief Vérifie si l'ennemi est mort
          * \return true si l'ennemi est mort, false sinon
          */
         bool estMort();
+
+        virtual std::vector<Projectile*> attaquer(SDL_Renderer *rend) = 0;
         
     protected:
         int hp_;

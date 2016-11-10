@@ -44,7 +44,7 @@ class Vaisseau {
          * \param vitesse: la vitesse du projectile
          * \param rend : le renderer où sera représenté le projectile
          */
-		virtual void tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend) = 0;
+		virtual Projectile* tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend) = 0;
 		/*!
 		 * \brief Fais se déplacer le vaisseau
 		 * \param x : le déplacement horizontal
@@ -66,15 +66,9 @@ class Vaisseau {
 		 * \return le rayon de la hitbox
 		 */
 		double getRayon();
-		/*!
-		 * \brief Retourne la référence de la  liste des projectiles tirés par le vaisseau
-		 * \return un vecteur de pointeurs vers Projectile
-		 */
-		std::vector<Projectile*>& getProjectiles();
 
 	protected:
 		double x_, y_, rayon_;
-		std::vector<Projectile*> vp_;
 		SDL_Rect rect_;
 		SDL_Surface *img_;
 		SDL_Texture *tex_;

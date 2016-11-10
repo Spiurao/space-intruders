@@ -1,5 +1,7 @@
 #include "Niveau1.hpp"
 
+using namespace std;
+
 Niveau1::Niveau1(SpaceIntruders *jeu):
 	Niveau(jeu),
 	joueur_(Joueur(jeu->getW()/2.0-32, 5*jeu->getH()/6.0, 8.0,
@@ -8,18 +10,23 @@ Niveau1::Niveau1(SpaceIntruders *jeu):
 		    )
 		)
 {
-	ennemis_ = std::vector<Ennemi*>();
-	ennemis_.push_back(new Sbire(jeu->getW()/2-20, jeu->getH()/3, 40, SDL_LoadBMP("assets/sbirampon.bmp"), jeu->getRenderer(), 20));
+	ennemis_ = vector<Ennemi*>();
+	vpe_ = vector<Projectile*>();
+	ennemis_.push_back(new Sbire(jeu->getW()/3-20, jeu->getH()/3, 40, SDL_LoadBMP("assets/sbirampon.bmp"), jeu->getRenderer(), 20));
+	ennemis_.push_back(new Sbire(2*jeu->getW()/3-20, jeu->getH()/3, 40, SDL_LoadBMP("assets/sbirampon.bmp"), jeu->getRenderer(), 20));
 }
 
 Niveau1::~Niveau1()
 {
 	for(auto e: ennemis_)
 		delete e;
+
+	for(auto pe: vpe_)
+		delete pe;
 }
 
 void Niveau1::update(float delta){
-	std::vector<Projectile*>& projectilesJoueur = joueur_.getProjectiles();
+	vector<Projectile*>& projectilesJoueur = joueur_.getProjectiles();
 
 	for(int i=projectilesJoueur.size()-1; i>=0; --i){
 		SDL_Rect rectProjectile = projectilesJoueur[i]->getRect();
@@ -44,11 +51,20 @@ void Niveau1::update(float delta){
 			}
 		}
 	}
-	for(auto e: ennemis_){
-			e->tirer(e->getRect().x, e->getRect().y, 0, 0.1, jeu_->getRenderer());
-		for(auto pe: e->getProjectiles())
-			pe->avancer();
+
+	for(auto pe: vpe_)
+		pe->avancer();
+
+	if(delay<=0){
+		for(auto e: ennemis_){
+				vector<Projectile*> ennemiAttaque = e->attaquer(jeu_->getRenderer());
+				vpe_.reserve(vpe_.size()+ennemiAttaque.size());
+				vpe_.insert(vpe_.end(), ennemiAttaque.begin(), ennemiAttaque.end());
+			}
+		delay=50;
 	}
+	
+	delay--;
 }
 
 void Niveau1::render(float delta, SDL_Renderer *rendu){
@@ -58,11 +74,11 @@ void Niveau1::render(float delta, SDL_Renderer *rendu){
 	for(auto e: ennemis_){
 		SDL_Rect rectEnnemi = e->getRect();
 		SDL_RenderCopy(jeu_->getRenderer(), e->getTexture(), NULL, &rectEnnemi);
+	}
 
-		for(auto pe : e->getProjectiles()){
-			SDL_Rect rectProjectileEnnemi = pe->getRect();
-			SDL_RenderCopy(jeu_->getRenderer(), pe->getTexture(), NULL, &rectProjectileEnnemi);
-		}
+	for(auto pe : vpe_){
+		SDL_Rect rectProjectileEnnemi = pe->getRect();
+		SDL_RenderCopy(jeu_->getRenderer(), pe->getTexture(), NULL, &rectProjectileEnnemi);
 	}
 
 	for(auto p: joueur_.getProjectiles()){
@@ -71,16 +87,16 @@ void Niveau1::render(float delta, SDL_Renderer *rendu){
 	}
 }
 
-void Niveau1::keysDown(std::map<double,bool> &k){
+void Niveau1::keysDown(map<double,bool> &k){
 }
 
-void Niveau1::keysHold(std::map<double,bool> &k){
+void Niveau1::keysHold(map<double,bool> &k){
 	joueur_.gererJoueur(k, jeu_->getRenderer(), jeu_->getH(), jeu_->getW());
 }
 
-void Niveau1::keysUp(std::map<double,bool> &k){
+void Niveau1::keysUp(map<double,bool> &k){
 	if(k[SDLK_RETURN]){
-		std::shared_ptr<StartScreen> ss(new StartScreen(jeu_));
+		shared_ptr<StartScreen> ss(new StartScreen(jeu_));
 		jeu_->setScreen(ss);
 		jeu_->setInputListener(ss);
 	}

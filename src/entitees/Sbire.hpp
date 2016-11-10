@@ -35,4 +35,7 @@ class Sbire : public Ennemi {
 		 * \brief Fonction de débuggage, ne pas utiliser
 		 */
 		void afficher();
+
+		std::vector<Projectile*> attaquer(SDL_Renderer *rend);
+		
 };

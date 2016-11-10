@@ -67,7 +67,7 @@ class Joueur : public Vaisseau {
          * \param vitesse: la vitesse du projectile
          * \param rend : le renderer où sera représenté le projectile
          */
-        void tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend);
+        Projectile* tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend);
         /*!
          * \brief Appel gererProjectiles(), gererVitesse(), deplacer(), et fais tirer deux projectiles au joueur si Z est pressée
          * \param k : l'état des touches du clavier
@@ -81,6 +81,11 @@ class Joueur : public Vaisseau {
          */
         void gererProjectiles();
         /*!
+         * \brief Retourne la référence de la  liste des projectiles tirés par le vaisseau
+         * \return un vecteur de pointeurs vers Projectile
+         */
+        std::vector<Projectile*>& getProjectiles();
+        /*!
          * \brief Méthode de débuggage, à ne pas appeler
          */
         void afficher();
@@ -89,6 +94,7 @@ class Joueur : public Vaisseau {
         int vies_;
         double vitesse_;
         int delay_;
+        std::vector<Projectile*> vp_;
 
         void updateRect();
 };
