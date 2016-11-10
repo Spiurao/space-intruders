@@ -14,8 +14,8 @@ void Ennemi::recevoirDommage(int x){
     hp_-=x;
 }
 
-void Ennemi::tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend){
-	vp_.push_back(new ProjectileJoueur(x+10, y, 15, angle, vitesse, SDL_LoadBMP("assets/bullet.bmp"), rend));
+Projectile* Ennemi::tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend){
+	return new ProjectileJoueur(x+10, y+10, 15, angle, vitesse, SDL_LoadBMP("assets/bullet.bmp"), rend);
 }
 
 bool Ennemi::estMort(){

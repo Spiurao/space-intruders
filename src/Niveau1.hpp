@@ -55,14 +55,20 @@ public:
 	void keysHold(std::map<double,bool> &k);
 	/*!
 	 * \brief Méthode transmettant les infos sur les clés clavier juste relachées
-	 * \param k : Clés juste relachée
+	 * \param k : Clés juste relachées
 	 */
 	void keysUp(std::map<double,bool> &k);
 
 private:
+<<<<<<< HEAD
 	//std::vector<Ennemi*> ennemis_;
 	Vague vague_;
 	float intervalVagues_;
 	float tempsVague_;
+=======
+	int delay = 0;
+	std::vector<Ennemi*> ennemis_;
+	std::vector<Projectile*> vpe_;
+>>>>>>> 589b165e9a81aaa7645f7ccdca09b71ef6ded5ba
 	Joueur joueur_;
 };

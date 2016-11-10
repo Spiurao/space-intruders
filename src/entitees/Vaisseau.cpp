@@ -5,14 +5,9 @@ using namespace std;
 
 Vaisseau::Vaisseau(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend) :
 x_(x), y_(y), rayon_(rayon), img_(img), tex_(SDL_CreateTextureFromSurface(rend, img_))
-{
-	vp_ = std::vector<Projectile*>();
-}
+{}
 
-Vaisseau::~Vaisseau(){
-	for(auto p: vp_)
-		delete p;
-}
+Vaisseau::~Vaisseau(){}
 
 void Vaisseau::bouger(double x, double y){
 	x_+=x;
@@ -30,6 +25,7 @@ SDL_Rect Vaisseau::getRect(){
 
 double Vaisseau::getRayon(){
 	return rayon_;
+<<<<<<< HEAD
 }
 
 std::vector<Projectile*>& Vaisseau::getProjectiles(){
@@ -44,3 +40,6 @@ void Vaisseau::updateRect(){
 	rect_.x = (int)x_;
 	rect_.y = (int)y_;
 }
+=======
+}
+>>>>>>> 589b165e9a81aaa7645f7ccdca09b71ef6ded5ba

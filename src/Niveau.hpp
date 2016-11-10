@@ -51,7 +51,7 @@ class Niveau : public Screen{
 		virtual void keysHold(std::map<double,bool> &k);
 		/*!
 		 * \brief Méthode transmettant les infos sur les clés clavier juste relachées
-		 * \param k : Clés juste relachée
+		 * \param k : Clés juste relachées
 		 */
 		virtual void keysUp(std::map<double,bool> &k);
 
