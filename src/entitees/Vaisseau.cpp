@@ -27,10 +27,6 @@ double Vaisseau::getRayon(){
 	return rayon_;
 }
 
-std::vector<Projectile*>& Vaisseau::getProjectiles(){
-	return vp_;
-}
-
 bool Vaisseau::estSorti(int w, int h){
     return x_+rayon_ < 0 || x_>w || y_>h;
 }

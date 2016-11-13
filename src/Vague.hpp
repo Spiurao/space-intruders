@@ -12,7 +12,7 @@ class Vague{
         Ennemi* getEnnemi(unsigned int id);
         void deleteEnnemi(unsigned int id);
         void update(float delta);
-        void render(float delta, SDL_Renderer *rendu);
+        void render(float delta, std::vector<Projectile*> vpe, SDL_Renderer *rendu);
         void add(unsigned int nbEnnemis, int formation);
         //Formations
         static const int HORIZONTALE = 0;

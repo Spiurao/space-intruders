@@ -17,12 +17,12 @@ Ennemi* Vague::getEnnemi(unsigned int id){
     return NULL;
 }
 
-void Vague::render(float delta, SDL_Renderer *rendu){
+void Vague::render(float delta, std::vector<Projectile*> vpe, SDL_Renderer *rendu){
     for(auto e: ennemis_){
         SDL_Rect rectEnnemi = e->getRect();
         SDL_RenderCopy(jeu_->getRenderer(), e->getTexture(), NULL, &rectEnnemi);
 
-        for(auto pe : e->getProjectiles()){
+        for(auto pe : vpe){
             SDL_Rect rectProjectileEnnemi = pe->getRect();
             SDL_RenderCopy(jeu_->getRenderer(), pe->getTexture(), NULL, &rectProjectileEnnemi);
         }

@@ -74,7 +74,7 @@ void Niveau1::render(float delta, SDL_Renderer *rendu){
 	SDL_Rect rectJoueur = joueur_.getRect();
 	SDL_RenderCopy(jeu_->getRenderer(), joueur_.getTexture(), NULL, &rectJoueur);
 
-	vague_.render(delta, rendu);
+	vague_.render(delta, vpe_, rendu);
 
 	for(auto pe : vpe_){
 		SDL_Rect rectProjectileEnnemi = pe->getRect();

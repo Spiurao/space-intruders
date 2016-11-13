@@ -67,11 +67,6 @@ class Vaisseau {
 		 */
 		double getRayon();
 		/*!
-		 * \brief Retourne la référence de la  liste des projectiles tirés par le vaisseau
-		 * \return un vecteur de pointeurs vers Projectile
-		 */
-		std::vector<Projectile*>& getProjectiles();
-		/*!
 		 * \brief Teste si le vaisseau est sorti de l'écran
 		 * \return Vrai si le vaisseau est sorti de l'écran
 		 */
