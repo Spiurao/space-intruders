@@ -66,7 +66,6 @@ class Vaisseau {
 		 * \return le rayon de la hitbox
 		 */
 		double getRayon();
-<<<<<<< HEAD
 		/*!
 		 * \brief Retourne la référence de la  liste des projectiles tirés par le vaisseau
 		 * \return un vecteur de pointeurs vers Projectile
@@ -77,9 +76,7 @@ class Vaisseau {
 		 * \return Vrai si le vaisseau est sorti de l'écran
 		 */
 		bool estSorti(int w, int h);
-=======
->>>>>>> 589b165e9a81aaa7645f7ccdca09b71ef6ded5ba
-
+		
 	protected:
 		double x_, y_, rayon_;
 		SDL_Rect rect_;

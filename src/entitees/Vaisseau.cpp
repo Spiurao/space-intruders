@@ -40,6 +40,3 @@ void Vaisseau::updateRect(){
 	rect_.x = (int)x_;
 	rect_.y = (int)y_;
 }
-=======
-}
->>>>>>> 589b165e9a81aaa7645f7ccdca09b71ef6ded5ba
