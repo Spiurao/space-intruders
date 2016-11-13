@@ -25,7 +25,6 @@ SDL_Rect Vaisseau::getRect(){
 
 double Vaisseau::getRayon(){
 	return rayon_;
-<<<<<<< HEAD
 }
 
 std::vector<Projectile*>& Vaisseau::getProjectiles(){
