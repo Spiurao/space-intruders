@@ -72,15 +72,11 @@ void Joueur::afficher(){
     std::cout << '(' << x_ << ", " << y_ << "), " << vies_ << " vies" << std::endl;
 }
 
-<<<<<<< HEAD
-/*
-=======
 std::vector<Projectile*>& Joueur::getProjectiles(){
 	return vp_;
 }
 
->>>>>>> 589b165e9a81aaa7645f7ccdca09b71ef6ded5ba
 void Joueur::updateRect(){
 	rect_.x = (int)x_;
 	rect_.y = (int)y_;
-}*/
+}

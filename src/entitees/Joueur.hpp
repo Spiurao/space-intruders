@@ -95,6 +95,4 @@ class Joueur : public Vaisseau {
         double vitesse_;
         int delay_;
         std::vector<Projectile*> vp_;
-
-        //void updateRect();
 };
