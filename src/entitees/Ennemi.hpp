@@ -51,11 +51,8 @@ class Ennemi : public Vaisseau {
          */
         bool estMort();
 
-<<<<<<< HEAD
-=======
         virtual std::vector<Projectile*> attaquer(SDL_Renderer *rend) = 0;
-        
->>>>>>> 589b165e9a81aaa7645f7ccdca09b71ef6ded5ba
+
     protected:
         int hp_;
 };
