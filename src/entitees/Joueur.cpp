@@ -75,8 +75,3 @@ void Joueur::afficher(){
 std::vector<Projectile*>& Joueur::getProjectiles(){
 	return vp_;
 }
-
-void Joueur::updateRect(){
-	rect_.x = (int)x_;
-	rect_.y = (int)y_;
-}
