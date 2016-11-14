@@ -58,6 +58,22 @@ void Niveau1::update(float delta){
 			}
 		}
 	}
+
+	SDL_Rect rectJoueur = joueur_.getRect();
+
+	for(int i=vpe_.size()-1; i>=0; --i){
+
+		SDL_Rect rectProjectileEnnemi = vpe_[i]->getRect();
+
+		if(sqrt((rectProjectileEnnemi.x-rectJoueur.x)*(rectProjectileEnnemi.x-rectJoueur.x)
+				+(rectProjectileEnnemi.y-rectJoueur.y)*(rectProjectileEnnemi.y-rectJoueur.y))
+				< joueur_.getRayon()+vpe_[i]->getRayon()){
+
+			joueur_.retirerVie();
+			delete vpe_[i];
+			vpe_.erase(vpe_.begin()+i);
+		}
+	}
 	
 	vague_.update(delta);
 
