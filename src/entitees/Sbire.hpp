@@ -7,7 +7,11 @@
  * \version 0.1
  */
 
+#include <iostream>
 #include "Ennemi.hpp"
+#include "../patterns/StrategyAttaque.hpp"
+#include "../patterns/StrategyAttaqueCirculaire.hpp"
+#include "../patterns/StrategyAttaqueVerticalDescendant.hpp"
 
 /*!
  * \class Sbire
@@ -37,5 +41,7 @@ class Sbire : public Ennemi {
 		void afficher();
 
 		std::vector<Projectile*> attaquer(SDL_Renderer *rend);
-		
+	private:
+		int delay_;
+		StrategyAttaque *attaque_;
 };

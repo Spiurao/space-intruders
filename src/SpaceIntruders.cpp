@@ -28,7 +28,7 @@ int SpaceIntruders::start(){
 	windowDim_.h = dm_.h*9/10; windowDim_.w = windowDim_.h*2/3;
 
     //Creation de la fenetre
-    window_ = SDL_CreateWindow("Space Intruders", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowDim_.w, windowDim_.h, SDL_WINDOW_SHOWN);
+    window_ = SDL_CreateWindow("Space Intruders", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, windowDim_.w, windowDim_.h, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 
     //Creation du renderer
     render_ = SDL_CreateRenderer(window_, -1, SDL_RENDERER_ACCELERATED);
@@ -78,13 +78,13 @@ int SpaceIntruders::start(){
 				    break;
 			}
     	}
+    	SDL_RenderClear(render_);
 		input_.get()->keysHold(keysHold);
     	//Update
     	screen_.get()->update(delta_);
     	//Rendu
     	screen_.get()->render(delta_, render_);
 		SDL_RenderPresent(render_);
-    	SDL_RenderClear(render_);
 		//Calcul du delta
     	long stop =  (std::chrono::system_clock::now().time_since_epoch() / std::chrono::milliseconds(1));
 		delta_ = (float) (stop - start)/1000;

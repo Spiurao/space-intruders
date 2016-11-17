@@ -51,6 +51,8 @@ public:
 	 * \brief Fais avancer le projectile selon sa vitesse et son angle
 	 */
 	void avancer();
+
+	bool estSorti(int w, int h);
 protected:
 	double x_, y_, rayon_, angle_, vitesse_;
 	SDL_Rect rect_;

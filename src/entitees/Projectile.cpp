@@ -26,6 +26,10 @@ void Projectile::avancer(){
 	updateRect();
 }
 
+bool Projectile::estSorti(int w, int h){
+    return x_+rayon_ < 0 || x_>w || y_>h || y_+rayon_ < 0;
+}
+
 void Projectile::updateRect(){
 	rect_.x = (int)x_;
 	rect_.y = (int)y_;

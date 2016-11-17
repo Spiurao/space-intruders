@@ -1,3 +1,5 @@
+#pragma once
+
 #include "SDL2/SDL.h"
 #include "entitees/Ennemi.hpp"
 #include "entitees/Sbire.hpp"
@@ -11,6 +13,7 @@ class Vague{
         int getNbEnnemis();
         Ennemi* getEnnemi(unsigned int id);
         void deleteEnnemi(unsigned int id);
+        //std::vector<Projectile*> attaquer();
         void update(float delta);
         void render(float delta, std::vector<Projectile*> vpe, SDL_Renderer *rendu);
         void add(unsigned int nbEnnemis, int formation);

@@ -75,6 +75,12 @@ void Niveau1::update(float delta){
 		}
 	}
 	
+	for(int i=0; i<vague_.getNbEnnemis(); ++i){
+			vector<Projectile*> ennemiAttaque = vague_.getEnnemi(i)->attaquer(jeu_->getRenderer());
+			vpe_.reserve(vpe_.size()+ennemiAttaque.size());
+			vpe_.insert(vpe_.end(), ennemiAttaque.begin(), ennemiAttaque.end());
+		}
+
 	vague_.update(delta);
 
 	if(tempsVague_ >= intervalVagues_){
@@ -87,20 +93,33 @@ void Niveau1::update(float delta){
 }
 
 void Niveau1::render(float delta, SDL_Renderer *rendu){
-	SDL_Rect rectJoueur = joueur_.getRect();
-	SDL_RenderCopy(jeu_->getRenderer(), joueur_.getTexture(), NULL, &rectJoueur);
 
-	vague_.render(delta, vpe_, rendu);
+	//SDL_Texture *globalTexture = SDL_CreateTexture(rendu, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, jeu_->getW(), jeu_->getH());
+
+
+	//SDL_SetRenderTarget(rendu, globalTexture);
 
 	for(auto pe : vpe_){
 		SDL_Rect rectProjectileEnnemi = pe->getRect();
-		SDL_RenderCopy(jeu_->getRenderer(), pe->getTexture(), NULL, &rectProjectileEnnemi);
+		SDL_RenderCopy(rendu, pe->getTexture(), NULL, &rectProjectileEnnemi);
 	}
 
 	for(auto p: joueur_.getProjectiles()){
 		SDL_Rect rectProjectile = p->getRect();
-		SDL_RenderCopy(jeu_->getRenderer(), p->getTexture(), NULL, &rectProjectile);
+		SDL_RenderCopy(rendu, p->getTexture(), NULL, &rectProjectile);
 	}
+
+	/*SDL_SetRenderTarget(rendu, NULL);
+	SDL_Rect rectGlobalTexture; rectGlobalTexture.x = rectGlobalTexture.y = 0;
+	rectGlobalTexture.h = jeu_->getH(); rectGlobalTexture.w = jeu_->getW();
+	SDL_RenderCopy(rendu, globalTexture, NULL, &rectGlobalTexture);
+	SDL_DestroyTexture(globalTexture);*/
+
+
+	SDL_Rect rectJoueur = joueur_.getRect();
+	SDL_RenderCopy(rendu, joueur_.getTexture(), NULL, &rectJoueur);
+
+	vague_.render(delta, vpe_, rendu);
 }
 
 void Niveau1::keysDown(map<double,bool> &k){

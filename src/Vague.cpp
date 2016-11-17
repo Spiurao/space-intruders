@@ -22,10 +22,10 @@ void Vague::render(float delta, std::vector<Projectile*> vpe, SDL_Renderer *rend
         SDL_Rect rectEnnemi = e->getRect();
         SDL_RenderCopy(jeu_->getRenderer(), e->getTexture(), NULL, &rectEnnemi);
 
-        for(auto pe : vpe){
+        /*for(auto pe : vpe){
             SDL_Rect rectProjectileEnnemi = pe->getRect();
             SDL_RenderCopy(jeu_->getRenderer(), pe->getTexture(), NULL, &rectProjectileEnnemi);
-        }
+        }*/
     }
 }
 
@@ -47,10 +47,9 @@ void Vague::update(float delta){
 			pe->avancer();
         }*/
         //Sortie
-        if(ennemis_[i]->estSorti(jeu_->getW(), jeu_->getH())){
+        if(ennemis_[i]->estSorti(jeu_->getW(), jeu_->getH()))
             deleteEnnemi(i);
-            std::cout << "BIM" << std::endl;
-        }
+        
     }
 }
 

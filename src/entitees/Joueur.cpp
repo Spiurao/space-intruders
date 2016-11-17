@@ -60,7 +60,8 @@ void Joueur::gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int Fene
 			delay_ = 60;
 		}
 	}
-	delay_--;
+	else
+		--delay_;
 }
 
 void Joueur::gererProjectiles(){

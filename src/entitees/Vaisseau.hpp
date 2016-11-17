@@ -75,7 +75,7 @@ class Vaisseau {
 	protected:
 		double x_, y_, rayon_;
 		SDL_Rect rect_;
-		SDL_Surface *img_;
+		//SDL_Surface *img_;
 		SDL_Texture *tex_;
 		void updateRect();
 };
