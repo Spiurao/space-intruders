@@ -119,7 +119,7 @@ void Niveau1::render(float delta, SDL_Renderer *rendu){
 	SDL_Rect rectJoueur = joueur_.getRect();
 	SDL_RenderCopy(rendu, joueur_.getTexture(), NULL, &rectJoueur);
 
-	vague_.render(delta, vpe_, rendu);
+	vague_.render(delta, rendu);
 }
 
 void Niveau1::keysDown(map<double,bool> &k){
