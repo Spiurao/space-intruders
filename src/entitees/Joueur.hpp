@@ -44,6 +44,10 @@ class Joueur : public Vaisseau {
          */
         void retirerVie();
         /*!
+         * \return Vrai si le jouer n'a plus de vie
+         */
+        bool estMort();
+        /*!
          * \brief Ajoute une vie au joueur
          */
         void ajouterVie();
