@@ -17,6 +17,10 @@ void Joueur::retirerVie(){
     vies_--;
 }
 
+bool Joueur::estMort(){
+	return vies_<=0;
+}
+
 void Joueur::ajouterVie(){
     vies_++;
 }
