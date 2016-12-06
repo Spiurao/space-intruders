@@ -33,7 +33,7 @@ class Bouton{
          */
         void trigger();
         /*!
-         * \brief Construit un bouton
+         * \brief Rendu du bouton
          * \param delta : Temps écoulé depuis le dernier appel
          */
         void render(float delta);

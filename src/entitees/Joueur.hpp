@@ -44,6 +44,14 @@ class Joueur : public Vaisseau {
          */
         void retirerVie();
         /*!
+         * \return la vie actuelle du joueur
+         */
+        int getVies();
+        /*!
+         * \return le nb de vies max du joueur
+         */
+        int getViesMax();
+        /*!
          * \return Vrai si le jouer n'a plus de vie
          */
         bool estMort();
@@ -95,7 +103,7 @@ class Joueur : public Vaisseau {
         void afficher();
 
     private:
-        int vies_;
+        int vies_, viesMax_;
         double vitesse_;
         int delay_;
         std::vector<Projectile*> vp_;

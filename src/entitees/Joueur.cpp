@@ -5,7 +5,7 @@ Joueur::Joueur(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer 
 	rect_.h = rect_.w = 64;
 	rect_.x = x_;
 	rect_.y = y_;
-
+	viesMax_ = vies;
 	vp_ = std::vector<Projectile*>();
 
 }
@@ -23,6 +23,13 @@ bool Joueur::estMort(){
 
 void Joueur::ajouterVie(){
     vies_++;
+}
+
+int Joueur::getVies(){
+	return vies_;
+}
+int Joueur::getViesMax(){
+	return viesMax_;
 }
 
 void Joueur::setVitesse(double v){

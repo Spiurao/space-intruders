@@ -16,6 +16,7 @@
 #include "StartScreen.hpp"
 #include "GameOverScreen.hpp"
 #include "Vague.hpp"
+#include "LifeBar.hpp"
 
 
 /*!
@@ -67,4 +68,6 @@ private:
 
 	std::vector<Projectile*> vpe_;
 	Joueur joueur_;
+	LifeBar *lifeBar_;
+	SDL_Rect rect_;
 };

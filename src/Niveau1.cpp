@@ -15,11 +15,17 @@ Niveau1::Niveau1(SpaceIntruders *jeu):
 
 {
 
+	rect_.x = 0, rect_.y = 0;
+	rect_.w = jeu->getW();rect_.h=jeu->getH();
+
 	tempsVague_ = 0;
 	intervalVagues_ = 7;
 	srand (time(NULL));
 
 	vpe_ = vector<Projectile*>();
+
+
+	lifeBar_ = new LifeBar(&joueur_, jeu);
 
 }
 
@@ -70,6 +76,7 @@ void Niveau1::update(float delta){
 				< joueur_.getRayon()+vpe_[i]->getRayon()){
 
 			joueur_.retirerVie();
+			lifeBar_->update(delta);
 			delete vpe_[i];
 			vpe_.erase(vpe_.begin()+i);
 		}
@@ -101,9 +108,10 @@ void Niveau1::update(float delta){
 void Niveau1::render(float delta, SDL_Renderer *rendu){
 
 	//SDL_Texture *globalTexture = SDL_CreateTexture(rendu, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, jeu_->getW(), jeu_->getH());
+	SDL_SetRenderDrawColor(rendu,0,0,100,255);//FOND
+	SDL_RenderFillRect(rendu, &rect_);
 
-
-	//SDL_SetRenderTarget(rendu, globalTexture);
+	//SDL_SetRenderTarget(rendu, globalTexture)
 
 	for(auto pe : vpe_){
 		SDL_Rect rectProjectileEnnemi = pe->getRect();
@@ -126,6 +134,8 @@ void Niveau1::render(float delta, SDL_Renderer *rendu){
 	SDL_RenderCopy(rendu, joueur_.getTexture(), NULL, &rectJoueur);
 
 	vague_.render(delta, rendu);
+
+	lifeBar_->render(delta);
 }
 
 void Niveau1::keysDown(map<double,bool> &k){
