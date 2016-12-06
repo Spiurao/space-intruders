@@ -74,7 +74,7 @@ void Niveau1::update(float delta){
 			vpe_.erase(vpe_.begin()+i);
 		}
 	}
-	
+
 	for(int i=0; i<vague_.getNbEnnemis(); ++i){
 			vector<Projectile*> ennemiAttaque = vague_.getEnnemi(i)->attaquer(jeu_->getRenderer());
 			vpe_.reserve(vpe_.size()+ennemiAttaque.size());
@@ -90,6 +90,12 @@ void Niveau1::update(float delta){
 
 	for(auto pe: vpe_)
 		pe->avancer();
+
+	if(joueur_.estMort()){
+		std::shared_ptr<GameOverScreen> gameOverScreen(new GameOverScreen(jeu_));
+		jeu_->setScreen(gameOverScreen);
+		jeu_->setInputListener(gameOverScreen);
+	}
 }
 
 void Niveau1::render(float delta, SDL_Renderer *rendu){
