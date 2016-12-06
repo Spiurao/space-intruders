@@ -9,7 +9,7 @@ Niveau1::Niveau1(SpaceIntruders *jeu):
 	vague_(5, Vague::FLECHE, jeu),
 	joueur_(Joueur(jeu->getW()/2.0-32, 5*jeu->getH()/6.0, 8.0,
 				   SDL_LoadBMP("assets/vaisseau.bmp"),
-		    	   jeu->getRenderer(), 5
+		    	   jeu->getRenderer(), 20
 		    	  )
 			)
 
@@ -17,6 +17,8 @@ Niveau1::Niveau1(SpaceIntruders *jeu):
 
 	rect_.x = 0, rect_.y = 0;
 	rect_.w = jeu->getW();rect_.h=jeu->getH();
+	imgBg_ = SDL_LoadBMP("assets/background.bmp");
+	texBg_ = SDL_CreateTextureFromSurface(jeu->getRenderer(), imgBg_);
 
 	tempsVague_ = 0;
 	intervalVagues_ = 7;
@@ -108,8 +110,9 @@ void Niveau1::update(float delta){
 void Niveau1::render(float delta, SDL_Renderer *rendu){
 
 	//SDL_Texture *globalTexture = SDL_CreateTexture(rendu, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, jeu_->getW(), jeu_->getH());
-	SDL_SetRenderDrawColor(rendu,0,0,100,255);//FOND
-	SDL_RenderFillRect(rendu, &rect_);
+	/*SDL_SetRenderDrawColor(rendu,0,0,100,255);//FOND
+	SDL_RenderFillRect(rendu, &rect_);*/
+	SDL_RenderCopy(rendu, texBg_, 0, &rect_);
 
 	//SDL_SetRenderTarget(rendu, globalTexture)
 

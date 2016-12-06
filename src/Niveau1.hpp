@@ -70,4 +70,6 @@ private:
 	Joueur joueur_;
 	LifeBar *lifeBar_;
 	SDL_Rect rect_;
+	SDL_Surface *imgBg_;
+	SDL_Texture *texBg_;
 };
