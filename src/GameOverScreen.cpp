@@ -19,13 +19,14 @@ void GameOverScreen::render (float delta, SDL_Renderer *rendu){
 	SDL_RenderCopy(rendu, texBg_, 0, &rectBg_);
 }
 void GameOverScreen::keysDown(std::map<double,bool> &k){
-
 }
 void GameOverScreen::keysHold(std::map<double,bool> &k){
 
 }
 void GameOverScreen::keysUp(std::map<double,bool> &k){
-	std::shared_ptr<StartScreen> startScreen(new StartScreen(jeu_));
-	jeu_->setScreen(startScreen);
-	jeu_->setInputListener(startScreen);
+	if(k[SDLK_RETURN]){
+		std::shared_ptr<StartScreen> startScreen(new StartScreen(jeu_));
+		jeu_->setScreen(startScreen);
+		jeu_->setInputListener(startScreen);
+	}
 }
