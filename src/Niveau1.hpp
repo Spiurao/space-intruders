@@ -14,6 +14,7 @@
 #include "entitees/Sbire.hpp"
 #include "entitees/Joueur.hpp"
 #include "StartScreen.hpp"
+#include "GameOverScreen.hpp"
 #include "Vague.hpp"
 
 
@@ -63,7 +64,7 @@ private:
 	Vague vague_;
 	float intervalVagues_;
 	float tempsVague_;
-	
+
 	std::vector<Projectile*> vpe_;
 	Joueur joueur_;
 };
