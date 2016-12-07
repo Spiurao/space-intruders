@@ -98,9 +98,10 @@ void Niveau1::update(float delta){
 
 	vague_.update(delta);
 
-	if(tempsVague_ >= intervalVagues_){
+	if(tempsVague_ >= intervalVagues_ && nbVagues_ < maxVague_){
 		vague_.add(rand() % 4 + 4, rand() % 3);
 		tempsVague_ = 0;
+		++nbVagues_;
 	}
 
 	for(auto pe: vpe_)

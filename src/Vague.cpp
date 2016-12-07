@@ -83,5 +83,8 @@ void Vague::add(unsigned int nbEnnemis, int formation){
                 SDL_LoadBMP("assets/sbirampon.bmp"),
                 jeu_->getRenderer(), 20));
         }
+        if(formation == BOSS){
+            ennemis_.push_back(new Boss(jeu_->getW()/2-64, jeu_->getH()/5, 35, ));
+        }
     }
 }

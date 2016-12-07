@@ -34,4 +34,12 @@ class Boss : public Ennemi {
 		 * \brief Une fonction de débuggage, à ne pas utiliser
 		 */
 		void afficher();
+
+	private:
+		EtatBoss* etat_;
+
+		EtatDebut* etatDebut_; 
+		EtatSerieux* etatSerieux_; 
+		EtatTresSerieux* etatTresSerieux_; 
+		EtatFurax* etatFurax_;
 };

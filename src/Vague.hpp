@@ -21,6 +21,7 @@ class Vague{
         static const int HORIZONTALE = 0;
         static const int VERTICALE = 1;
         static const int FLECHE = 2;
+        static const int BOSS = 3;
     private:
         SpaceIntruders *jeu_;
         std::vector<Ennemi*> ennemis_;
