@@ -19,9 +19,9 @@ double Projectile::getRayon(){
 	return rayon_;
 }
 
-void Projectile::avancer(){
-	x_+=sin(angle_*M_PI/180.0)*vitesse_;
-	y_+=cos(angle_*M_PI/180.0)*vitesse_;
+void Projectile::avancer(float delta){
+	x_+=sin(angle_*M_PI/180.0)*vitesse_*delta*500;
+	y_+=cos(angle_*M_PI/180.0)*vitesse_*delta*500;
 
 	updateRect();
 }

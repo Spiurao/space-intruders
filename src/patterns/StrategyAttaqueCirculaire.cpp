@@ -12,7 +12,7 @@ std::vector<Projectile*> StrategyAttaqueCirculaire::attaquer(int x, int y, SDL_R
 	vector<Projectile*> aReturn = vector<Projectile*>();
 
 	for(int i=0; i<10; ++i)
-		aReturn.push_back(new ProjectileJoueur(x+10, y+10, 15, 36*i, 0.2, SDL_LoadBMP("assets/bullet.bmp"), rend));
+		aReturn.push_back(new ProjectileJoueur(x+10, y+10, 10, 36*i, 0.2, SDL_LoadBMP("assets/bullet.bmp"), rend));
 
 	return aReturn;
 }

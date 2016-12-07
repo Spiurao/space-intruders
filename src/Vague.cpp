@@ -58,14 +58,14 @@ void Vague::add(unsigned int nbEnnemis, int formation){
             int ecart = jeu_->getW()/nbEnnemis-40;
             int startX = (jeu_->getW()-(nbEnnemis)*(40+ecart)+ecart)/2;
             ennemis_.push_back(new Sbire(startX+i*(40+ecart),
-                -40, 40,
+                -40, 20,
                 SDL_LoadBMP("assets/sbirampon.bmp"),
                 jeu_->getRenderer(), 20));
         }
         if(formation == VERTICALE){
             int ecart = 40;
             ennemis_.push_back(new Sbire(jeu_->getW()/2-20,
-                -(ecart+40)*(int)i, 40,
+                -(ecart+40)*(int)i, 20,
                 SDL_LoadBMP("assets/sbirampon.bmp"),
                 jeu_->getRenderer(), 20));
         }
@@ -79,7 +79,7 @@ void Vague::add(unsigned int nbEnnemis, int formation){
                 y =((((int)i-1)/2)*-40)-40;
             }
             ennemis_.push_back(new Sbire(x,
-                y, 40,
+                y, 20,
                 SDL_LoadBMP("assets/sbirampon.bmp"),
                 jeu_->getRenderer(), 20));
         }

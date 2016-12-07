@@ -50,7 +50,7 @@ public:
 	/*!
 	 * \brief Fais avancer le projectile selon sa vitesse et son angle
 	 */
-	void avancer();
+	void avancer(float delta);
 
 	bool estSorti(int w, int h);
 protected:

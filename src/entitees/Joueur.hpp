@@ -91,7 +91,7 @@ class Joueur : public Vaisseau {
         /*!
          * \brief Fais bouger les projectiles du joueur
          */
-        void gererProjectiles();
+        void gererProjectiles(float delta);
         /*!
          * \brief Retourne la référence de la  liste des projectiles tirés par le vaisseau
          * \return un vecteur de pointeurs vers Projectile

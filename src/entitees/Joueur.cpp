@@ -57,11 +57,10 @@ void Joueur::gererVitesse(std::map<double, bool> &k){
 }
 
 Projectile* Joueur::tirer(double x, double y, double angle, double vitesse, SDL_Renderer *rend){
-	return new ProjectileJoueur(x, y, 15, angle, vitesse, SDL_LoadBMP("assets/bullet.bmp"), rend);
+	return new ProjectileJoueur(x, y, 10, angle, vitesse, SDL_LoadBMP("assets/bullet.bmp"), rend);
 }
 
 void Joueur::gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int FenetreH, int FenetreW){
-	gererProjectiles();
 	gererVitesse(k);
 	deplacer(k, FenetreH, FenetreW);
 	if(delay_ <= 0){
@@ -75,9 +74,9 @@ void Joueur::gererJoueur(std::map<double, bool> &k, SDL_Renderer *rend, int Fene
 		--delay_;
 }
 
-void Joueur::gererProjectiles(){
+void Joueur::gererProjectiles(float delta){
 	for(auto p: vp_)
-		p->avancer();
+		p->avancer(delta);
 }
 
 void Joueur::afficher(){

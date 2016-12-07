@@ -47,23 +47,28 @@ void Niveau1::update(float delta){
 
 		SDL_Rect rectProjectile = projectilesJoueur[i]->getRect();
 
-		for(int j=vague_.getNbEnnemis()-1; j>=0; --j){
+		int j = vague_.getNbEnnemis()-1;
+		bool aTouche = false;
+		while(j>=0 && !aTouche){
 
 			SDL_Rect rectEnnemi = vague_.getEnnemi(j)->getRect();
 
-			if(sqrt((rectProjectile.x-rectEnnemi.x)*(rectProjectile.x-rectEnnemi.x)
-				+(rectProjectile.y-rectEnnemi.y)*(rectProjectile.y-rectEnnemi.y))
-				< vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon()){
+			if((rectProjectile.x-rectEnnemi.x)*(rectProjectile.x-rectEnnemi.x)
+				+(rectProjectile.y-rectEnnemi.y)*(rectProjectile.y-rectEnnemi.y)
+				< (vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())*
+				(vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())){
 
-				vague_.getEnnemi(j)->recevoirDommage(1);
+				vague_.getEnnemi(j)->recevoirDommage(5);
 
 				delete projectilesJoueur[i];
 				projectilesJoueur.erase(projectilesJoueur.begin()+i);
+				aTouche = true;
 			}
 
 			if(vague_.getEnnemi(j)->estMort()){
 				vague_.deleteEnnemi(j);
 			}
+			--j;
 		}
 	}
 
@@ -73,9 +78,10 @@ void Niveau1::update(float delta){
 
 		SDL_Rect rectProjectileEnnemi = vpe_[i]->getRect();
 
-		if(sqrt((rectProjectileEnnemi.x-rectJoueur.x)*(rectProjectileEnnemi.x-rectJoueur.x)
-				+(rectProjectileEnnemi.y-rectJoueur.y)*(rectProjectileEnnemi.y-rectJoueur.y))
-				< joueur_.getRayon()+vpe_[i]->getRayon()){
+		if((rectProjectileEnnemi.x-rectJoueur.x-32)*(rectProjectileEnnemi.x-rectJoueur.x-32)
+			+(rectProjectileEnnemi.y-rectJoueur.y-32)*(rectProjectileEnnemi.y-rectJoueur.y-32)
+			< (joueur_.getRayon()+vpe_[i]->getRayon())
+			*(joueur_.getRayon()+vpe_[i]->getRayon())){
 
 			joueur_.retirerVie();
 			lifeBar_->update(delta);
@@ -98,7 +104,9 @@ void Niveau1::update(float delta){
 	}
 
 	for(auto pe: vpe_)
-		pe->avancer();
+		pe->avancer(delta);
+
+	joueur_.gererProjectiles(delta);
 
 	if(joueur_.estMort()){
 		std::shared_ptr<GameOverScreen> gameOverScreen(new GameOverScreen(jeu_));
