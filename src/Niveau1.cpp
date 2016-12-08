@@ -15,15 +15,18 @@ Niveau1::Niveau1(SpaceIntruders *jeu):
 
 {
 
+	//initialisation de la fenêtre
 	rect_.x = 0, rect_.y = 0;
 	rect_.w = jeu->getW();rect_.h=jeu->getH();
 	imgBg_ = SDL_LoadBMP("assets/background.bmp");
 	texBg_ = SDL_CreateTextureFromSurface(jeu->getRenderer(), imgBg_);
 
+	//attributs pour les vagues
 	tempsVague_ = 0;
 	intervalVagues_ = 7;
 	srand (time(NULL));
 
+	//projectiles ennemis
 	vpe_ = vector<Projectile*>();
 
 
@@ -33,6 +36,7 @@ Niveau1::Niveau1(SpaceIntruders *jeu):
 
 Niveau1::~Niveau1()
 {
+	//suppression des projectiles
 	for(auto pe: vpe_)
 		delete pe;
 }
@@ -43,6 +47,7 @@ void Niveau1::update(float delta){
 
 	vector<Projectile*>& projectilesJoueur = joueur_.getProjectiles();
 
+	//vérification des collisions entre les projectiles du joueur et les ennemis
 	for(int i=projectilesJoueur.size()-1; i>=0; --i){
 
 		SDL_Rect rectProjectile = projectilesJoueur[i]->getRect();
@@ -53,6 +58,7 @@ void Niveau1::update(float delta){
 
 			SDL_Rect rectEnnemi = vague_.getEnnemi(j)->getRect();
 
+			//Vérification si le boss est apparu
 			if(!bossApparu_){
 				if((rectProjectile.x-rectEnnemi.x)*(rectProjectile.x-rectEnnemi.x)
 					+(rectProjectile.y-rectEnnemi.y)*(rectProjectile.y-rectEnnemi.y)
@@ -66,6 +72,7 @@ void Niveau1::update(float delta){
 					aTouche = true;
 				}
 			}
+			//Vérification si vague de Sbire
 			else{
 				if((rectProjectile.x-rectEnnemi.x-64)*(rectProjectile.x-rectEnnemi.x-64)
 					+(rectProjectile.y-rectEnnemi.y-45)*(rectProjectile.y-rectEnnemi.y-45)
@@ -89,6 +96,7 @@ void Niveau1::update(float delta){
 
 	SDL_Rect rectJoueur = joueur_.getRect();
 
+	//Vérification des collisions entre le joueur et les projectiles ennemis
 	for(int i=vpe_.size()-1; i>=0; --i){
 
 		SDL_Rect rectProjectileEnnemi = vpe_[i]->getRect();
@@ -112,24 +120,29 @@ void Niveau1::update(float delta){
 			}
 	}
 
+	//Mise à jour de la vague
 	vague_.update(delta);
 
+	//ajout d'une nouvelle vague
 	if(tempsVague_ >= intervalVagues_ && nbVagues_ < maxVague_){
 		vague_.add(rand() % 4 + 4, rand() % 3);
 		tempsVague_ = 0;
 		++nbVagues_;
 	}
 
+	//Apparition du boss si plus de vagues
 	if(nbVagues_>=maxVague_ && !bossApparu_ && tempsVague_ >= intervalVagues_+5){
 		vague_.add(1, 3);
 		bossApparu_ = true;
 	}
 
-		for(auto pe: vpe_)
-			pe->avancer(delta);
+	//On avance chaque projectile ennemis
+	for(auto pe: vpe_)
+		pe->avancer(delta);
 
 	joueur_.gererProjectiles(delta);
 
+	//Vérification des conditions de défaite
 	if(joueur_.estMort()){
 		std::shared_ptr<GameOverScreen> gameOverScreen(new GameOverScreen(jeu_));
 		jeu_->setScreen(gameOverScreen);
@@ -137,6 +150,7 @@ void Niveau1::update(float delta){
 	}
 }
 
+//Affichage
 void Niveau1::render(float delta, SDL_Renderer *rendu){
 
 	//SDL_Texture *globalTexture = SDL_CreateTexture(rendu, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, jeu_->getW(), jeu_->getH());
