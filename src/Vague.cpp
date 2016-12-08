@@ -48,7 +48,7 @@ void Vague::update(float delta){
             
         }
     }
-    else{
+    else if(nbEnnemis_>0){
         Boss* b = dynamic_cast<Boss*>(ennemis_[0]);
         if(b)
             b->gererEtat();

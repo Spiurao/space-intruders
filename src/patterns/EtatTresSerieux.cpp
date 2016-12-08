@@ -16,7 +16,7 @@ void EtatTresSerieux::devenirTresSerieux()
 
 void EtatTresSerieux::devenirFurax()
 {
-	b_->changerEtatSerieux();
+	b_->changerEtatFurax();
 }
 
 std::vector<Projectile*> EtatTresSerieux::attaquer(SDL_Renderer *rend){

@@ -22,7 +22,7 @@
 class Boss : public Ennemi {
 	
 	public:
-		/*!
+		/**
 		 * \brief Construit un boss
 		 * \param x : la coordonnée x du boss
 		 * \param y : la coordonnée y du boss
