@@ -27,4 +27,5 @@ class Vague{
         SpaceIntruders *jeu_;
         std::vector<Ennemi*> ennemis_;
         unsigned int nbEnnemis_;
+        bool bossApparu = false;
 };

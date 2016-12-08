@@ -33,18 +33,25 @@ void Vague::deleteEnnemi(unsigned int id){
 }
 
 void Vague::update(float delta){
-    for(unsigned int i=0; i< nbEnnemis_; ++i){
-        //Mouvement
-        ennemis_[i]->bouger(0,100*delta);
-        //Tir
-        /*ennemis_[i]->tirer(ennemis_[i]->getRect().x, ennemis_[i]->getRect().y, 0, 0.1, jeu_->getRenderer(), delta);
-		for(auto pe: ennemis_[i]->getProjectiles()){
-			pe->avancer();
-        }*/
-        //Sortie
-        if(ennemis_[i]->estSorti(jeu_->getW(), jeu_->getH()))
-            deleteEnnemi(i);
-        
+    if(!bossApparu){
+        for(unsigned int i=0; i< nbEnnemis_; ++i){
+            //Mouvement
+            ennemis_[i]->bouger(0,100*delta);
+            //Tir
+            /*ennemis_[i]->tirer(ennemis_[i]->getRect().x, ennemis_[i]->getRect().y, 0, 0.1, jeu_->getRenderer(), delta);
+    		for(auto pe: ennemis_[i]->getProjectiles()){
+    			pe->avancer();
+            }*/
+            //Sortie
+            if(ennemis_[i]->estSorti(jeu_->getW(), jeu_->getH()))
+                deleteEnnemi(i);
+            
+        }
+    }
+    else{
+        Boss* b = dynamic_cast<Boss*>(ennemis_[0]);
+        if(b)
+            b->gererEtat();
     }
 }
 
@@ -88,12 +95,10 @@ void Vague::add(unsigned int nbEnnemis, int formation){
         }
 
         if(formation == BOSS){
-            ennemis_.push_back(new Boss(500,
-            500, 35, SDL_LoadBMP("assets/meka-nar.bmp"),
+            ennemis_.push_back(new Boss(jeu_->getW()/2-64,
+            jeu_->getH()/5, 35, SDL_LoadBMP("assets/meka-nar.bmp"),
             jeu_->getRenderer(), 200));
+            bossApparu = true;
         }
     }
-
-    for(auto e:ennemis_)
-        std::cout << e << std::endl;
 }

@@ -54,7 +54,6 @@ class Boss : public Ennemi {
 		int getHP();
 
 	private:
-		int delay_;
 		int hpMax_;
 		EtatBoss* etat_;
 

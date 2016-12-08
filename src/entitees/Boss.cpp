@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Boss::Boss(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int hp): Ennemi(x, y, rayon, img, rend, hp), delay_(0), hpMax_(hp)
+Boss::Boss(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *rend, int hp): Ennemi(x, y, rayon, img, rend, hp), hpMax_(hp)
 {
 	rect_.h = 93;
 	rect_.w = 128;
@@ -26,14 +26,14 @@ Boss::~Boss()
 
 vector<Projectile*> Boss::attaquer(SDL_Renderer *rend)
 {
-	if(delay_ <= 0){
-		delay_ = 600;
+	/*if(delay_ <= 0){
+		delay_ = 600;*/
 		return etat_->attaquer(rend);
-	}
+	/*}
 	else
 		--delay_;
 
-	return vector<Projectile*>();
+	return vector<Projectile*>();*/
 }
 
 void Boss::changerEtatSerieux(){
@@ -49,7 +49,12 @@ void Boss::changerEtatFurax(){
 }
 
 void Boss::gererEtat(){
-	//if()
+	if(hp_ <= 0.25*hpMax_)
+		etat_->devenirFurax();
+	else if(hp_ <= 0.5*hpMax_)
+		etat_->devenirTresSerieux();
+	else if(hp_ <= 0.75*hpMax_)
+		etat_->devenirSerieux();
 }
 
 int Boss::getHP(){

@@ -66,7 +66,7 @@ private:
 	float intervalVagues_;
 	float tempsVague_;
 	int nbVagues_ = 1;
-	int maxVague_ = 0;
+	int maxVague_ = 2 ;
 	bool bossApparu_ = false;
 
 	std::vector<Projectile*> vpe_;

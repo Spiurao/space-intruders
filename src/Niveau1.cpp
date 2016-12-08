@@ -6,7 +6,7 @@ using namespace std;
 
 Niveau1::Niveau1(SpaceIntruders *jeu):
 	Niveau(jeu),
-	vague_(1, Vague::BOSS, jeu),
+	vague_(5, Vague::FLECHE, jeu),
 	joueur_(Joueur(jeu->getW()/2.0-32, 5*jeu->getH()/6.0, 8.0,
 				   SDL_LoadBMP("assets/vaisseau.bmp"),
 		    	   jeu->getRenderer(), 20
@@ -53,16 +53,31 @@ void Niveau1::update(float delta){
 
 			SDL_Rect rectEnnemi = vague_.getEnnemi(j)->getRect();
 
-			if((rectProjectile.x-rectEnnemi.x)*(rectProjectile.x-rectEnnemi.x)
-				+(rectProjectile.y-rectEnnemi.y)*(rectProjectile.y-rectEnnemi.y)
-				< (vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())*
-				(vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())){
+			if(!bossApparu_){
+				if((rectProjectile.x-rectEnnemi.x)*(rectProjectile.x-rectEnnemi.x)
+					+(rectProjectile.y-rectEnnemi.y)*(rectProjectile.y-rectEnnemi.y)
+					< (vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())*
+					(vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())){
 
-				vague_.getEnnemi(j)->recevoirDommage(5);
+					vague_.getEnnemi(j)->recevoirDommage(5);
 
-				delete projectilesJoueur[i];
-				projectilesJoueur.erase(projectilesJoueur.begin()+i);
-				aTouche = true;
+					delete projectilesJoueur[i];
+					projectilesJoueur.erase(projectilesJoueur.begin()+i);
+					aTouche = true;
+				}
+			}
+			else{
+				if((rectProjectile.x-rectEnnemi.x-64)*(rectProjectile.x-rectEnnemi.x-64)
+					+(rectProjectile.y-rectEnnemi.y-45)*(rectProjectile.y-rectEnnemi.y-45)
+					< (vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())*
+					(vague_.getEnnemi(j)->getRayon()+projectilesJoueur[i]->getRayon())){
+
+					vague_.getEnnemi(j)->recevoirDommage(5);
+
+					delete projectilesJoueur[i];
+					projectilesJoueur.erase(projectilesJoueur.begin()+i);
+					aTouche = true;
+				}
 			}
 
 			if(vague_.getEnnemi(j)->estMort()){
@@ -78,8 +93,8 @@ void Niveau1::update(float delta){
 
 		SDL_Rect rectProjectileEnnemi = vpe_[i]->getRect();
 
-		if((rectProjectileEnnemi.x-rectJoueur.x-32)*(rectProjectileEnnemi.x-rectJoueur.x-32)
-			+(rectProjectileEnnemi.y-rectJoueur.y-32)*(rectProjectileEnnemi.y-rectJoueur.y-32)
+		if((rectProjectileEnnemi.x-rectJoueur.x-16)*(rectProjectileEnnemi.x-rectJoueur.x-16)
+			+(rectProjectileEnnemi.y-rectJoueur.y-16)*(rectProjectileEnnemi.y-rectJoueur.y-16)
 			< (joueur_.getRayon()+vpe_[i]->getRayon())
 			*(joueur_.getRayon()+vpe_[i]->getRayon())){
 
@@ -99,19 +114,19 @@ void Niveau1::update(float delta){
 
 	vague_.update(delta);
 
-	/*if(tempsVague_ >= intervalVagues_ && nbVagues_ <= maxVague_){
+	if(tempsVague_ >= intervalVagues_ && nbVagues_ < maxVague_){
 		vague_.add(rand() % 4 + 4, rand() % 3);
 		tempsVague_ = 0;
 		++nbVagues_;
 	}
 
-	if(nbVagues_>maxVague_ && !bossApparu_){
+	if(nbVagues_>=maxVague_ && !bossApparu_ && tempsVague_ >= intervalVagues_+5){
 		vague_.add(1, 3);
 		bossApparu_ = true;
-	}*/
+	}
 
-	for(auto pe: vpe_)
-		pe->avancer(delta);
+		for(auto pe: vpe_)
+			pe->avancer(delta);
 
 	joueur_.gererProjectiles(delta);
 

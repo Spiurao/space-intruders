@@ -15,9 +15,15 @@ void EtatDebut::devenirFurax()
 {}
 
 std::vector<Projectile*> EtatDebut::attaquer(SDL_Renderer *rend){
-	SDL_Rect bossRect = b_->getRect();
-	std::vector<Projectile*> aReturn = std::vector<Projectile*>();
-	aReturn.push_back(new ProjectileJoueur(bossRect.x, bossRect.y, 10, 0, 0.5, SDL_LoadBMP("assets/bullet.bmp"), rend));
+	if(delay_<=0){
+		delay_ = 400;
+		SDL_Rect bossRect = b_->getRect();
+		std::vector<Projectile*> aReturn = std::vector<Projectile*>();
+		aReturn.push_back(new ProjectileJoueur(bossRect.x+64, bossRect.y+45, 10, 0, 0.5, SDL_LoadBMP("assets/bullet.bmp"), rend));
+		return aReturn;
+	}
+	else
+		--delay_;
 
-	return aReturn;
+	return std::vector<Projectile*>();
 }

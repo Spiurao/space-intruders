@@ -8,4 +8,6 @@ public:
 	void devenirTresSerieux();
 	void devenirFurax();
 	std::vector<Projectile*> attaquer(SDL_Renderer *rend);
+private:
+	int angle_;
 };

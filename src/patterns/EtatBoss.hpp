@@ -16,4 +16,5 @@ public:
 	virtual std::vector<Projectile*> attaquer(SDL_Renderer *rend) = 0;
 protected:
 	Boss* b_;
+	int delay_;
 };
