@@ -41,17 +41,32 @@ class Boss : public Ennemi {
 		 */
 		void afficher();
 
+        /*!
+         * \brief Fais attaquer l'ennemi
+         * \param rend : le renderer sur lequel seront représentés les projectiles
+         * \return un vector de projectiles tirés
+         */
 		std::vector<Projectile*> attaquer(SDL_Renderer *rend);
 
+        /*!
+         * \brief Gère les différents états en fonction des points de vie du boss
+         */
 		void gererEtat();
 
+        /*!
+         * \brief Change l'état du boss
+         */
 		void changerEtatSerieux();
 
+        /*!
+         * \brief Change l'état du boss
+         */
 		void changerEtatTresSerieux();
 
+        /*!
+         * \brief Change l'état du boss
+         */
 		void changerEtatFurax();
-
-		int getHP();
 
 	private:
 		int hpMax_;

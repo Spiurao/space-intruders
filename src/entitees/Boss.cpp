@@ -57,10 +57,6 @@ void Boss::gererEtat(){
 		etat_->devenirSerieux();
 }
 
-int Boss::getHP(){
-	return hp_;
-}
-
 void Boss::afficher(){
 	cout << '(' << x_ << ", " << y_ << "), " << hp_ << " hp" << endl;
 }

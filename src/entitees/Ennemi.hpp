@@ -51,6 +51,11 @@ class Ennemi : public Vaisseau {
          */
         bool estMort();
 
+        /*!
+         * \brief Fais attaquer l'ennemi
+         * \param rend : le renderer sur lequel sera représenté le boss
+         * \return un vector de projectiles tirés
+         */
         virtual std::vector<Projectile*> attaquer(SDL_Renderer *rend) = 0;
 
     protected:

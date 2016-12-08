@@ -1,4 +1,6 @@
 #include "Sbire.hpp"
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
@@ -7,8 +9,11 @@ Sbire::Sbire(double x, double y, double rayon, SDL_Surface *img, SDL_Renderer *r
 	rect_.h = rect_.w = 40;
 	rect_.x = x_;
 	rect_.y = y_;
-	attaque_ = new StrategyAttaqueCirculaire();
-
+	srand(time(NULL));
+	if(rand()%2)
+		attaque_ = new StrategyAttaqueCirculaire();
+	else
+		attaque_ = new StrategyAttaqueVerticalDescendant();
 }
 
 Sbire::~Sbire()

@@ -52,6 +52,12 @@ public:
 	 */
 	void avancer(float delta);
 
+    /*!
+     * \brief Vérifie si le projectile est sorti
+     * \param w : la largeur de la fenêtre
+     * \param h : la hauteur de la fenêtre
+     * \return true si le projectile est sorti, false sinon
+     */
 	bool estSorti(int w, int h);
 protected:
 	double x_, y_, rayon_, angle_, vitesse_;

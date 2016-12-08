@@ -39,7 +39,12 @@ class Sbire : public Ennemi {
 		 * \brief Fonction de débuggage, ne pas utiliser
 		 */
 		void afficher();
-
+		
+        /*!
+         * \brief Fais attaquer l'ennemi
+         * \param rend : le renderer sur lequel sera représenté le boss
+         * \return un vector de projectiles tirés
+         */
 		std::vector<Projectile*> attaquer(SDL_Renderer *rend);
 	private:
 		int delay_;
