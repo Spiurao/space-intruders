@@ -3,6 +3,7 @@
 #include "SDL2/SDL.h"
 #include "entitees/Ennemi.hpp"
 #include "entitees/Sbire.hpp"
+#include "entitees/Boss.hpp"
 #include "entitees/Joueur.hpp"
 #include "SpaceIntruders.hpp"
 #include <vector>

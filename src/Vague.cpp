@@ -50,9 +50,10 @@ void Vague::update(float delta){
 
 void Vague::add(unsigned int nbEnnemis, int formation){
     nbEnnemis_ += nbEnnemis;
-    if(nbEnnemis>10){
+
+    if(nbEnnemis>10)
         nbEnnemis=jeu_->getW()/40;
-    }
+
     for(unsigned int i=0; i<nbEnnemis; ++i){
         if(formation == HORIZONTALE){
             int ecart = jeu_->getW()/nbEnnemis-40;
@@ -62,6 +63,7 @@ void Vague::add(unsigned int nbEnnemis, int formation){
                 SDL_LoadBMP("assets/sbirampon.bmp"),
                 jeu_->getRenderer(), 20));
         }
+
         if(formation == VERTICALE){
             int ecart = 40;
             ennemis_.push_back(new Sbire(jeu_->getW()/2-20,
@@ -69,6 +71,7 @@ void Vague::add(unsigned int nbEnnemis, int formation){
                 SDL_LoadBMP("assets/sbirampon.bmp"),
                 jeu_->getRenderer(), 20));
         }
+
         if(formation == FLECHE){
             int x,y;
             if(i%2==0){
@@ -83,8 +86,14 @@ void Vague::add(unsigned int nbEnnemis, int formation){
                 SDL_LoadBMP("assets/sbirampon.bmp"),
                 jeu_->getRenderer(), 20));
         }
+
         if(formation == BOSS){
-            ennemis_.push_back(new Boss(jeu_->getW()/2-64, jeu_->getH()/5, 35, ));
+            ennemis_.push_back(new Boss(500,
+            500, 35, SDL_LoadBMP("assets/meka-nar.bmp"),
+            jeu_->getRenderer(), 200));
         }
     }
+
+    for(auto e:ennemis_)
+        std::cout << e << std::endl;
 }

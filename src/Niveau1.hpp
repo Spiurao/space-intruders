@@ -65,8 +65,9 @@ private:
 	Vague vague_;
 	float intervalVagues_;
 	float tempsVague_;
-	int nbVagues_ = 0;
-	int maxVague_ = 5;
+	int nbVagues_ = 1;
+	int maxVague_ = 0;
+	bool bossApparu_ = false;
 
 	std::vector<Projectile*> vpe_;
 	Joueur joueur_;

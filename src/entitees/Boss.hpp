@@ -8,6 +8,12 @@
  */
 
 #include "Ennemi.hpp"
+#include "../patterns/EtatBoss.hpp"
+#include "../patterns/EtatDebut.hpp"
+#include "../patterns/EtatSerieux.hpp"
+#include "../patterns/EtatTresSerieux.hpp"
+#include "../patterns/EtatFurax.hpp"
+#include "SDL2/SDL.h"
 
 /*!
  * \class Boss
@@ -35,7 +41,21 @@ class Boss : public Ennemi {
 		 */
 		void afficher();
 
+		std::vector<Projectile*> attaquer(SDL_Renderer *rend);
+
+		void gererEtat();
+
+		void changerEtatSerieux();
+
+		void changerEtatTresSerieux();
+
+		void changerEtatFurax();
+
+		int getHP();
+
 	private:
+		int delay_;
+		int hpMax_;
 		EtatBoss* etat_;
 
 		EtatDebut* etatDebut_; 

@@ -3,3 +3,6 @@
 
 EtatBoss::EtatBoss(Boss *b): b_(b)
 {}
+
+EtatBoss::~EtatBoss()
+{}
